@@ -16,4 +16,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- map("n", "<leader>o", "<cmd>only<cr>", { desc = "Close other windows and buffers" })
+map("n", "<leader>o", "<cmd>silent! only<cr>", { desc = "Close other windows" })
+map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
+map("n", "<leader>gl", "<cmd>0Gclog<cr>", { desc = "Git log current file" })
