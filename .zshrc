@@ -6,15 +6,13 @@ SAVEHIST=100000
 
 zstyle :compinstall filename '/home/tom/.zshrc'
 
-
-   # Basic auto/tab complete:
-        autoload -U compinit
-        zstyle ':completion:*' menu select
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zmodload zsh/complist
-        compinit
-        _comp_options+=(globdots)		# Include hidden files.
-
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # Include hidden files.
 
 EDTIOR=nvim
 
@@ -27,44 +25,43 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-export PATH=$PATH:/home/tom/.local/bin:/home/tom/.npm-packages/bin/
+export PATH=$PATH:/home/tom/.local/bin
+export PATH=$PATH:/home/tom/go/bin
 
-        stty stop undef		# Disable ctrl-s to freeze terminal.
+stty stop undef # Disable ctrl-s to freeze terminal.
 
+setopt appendhistory
+setopt COMPLETE_ALIASES
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
 
-        setopt appendhistory
-        setopt COMPLETE_ALIASES
-        setopt SHARE_HISTORY
-        setopt HIST_IGNORE_DUPS
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # Include hidden files.
 
-        # Basic auto/tab complete:
-        autoload -U compinit
-        zstyle ':completion:*' menu select
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zmodload zsh/complist
-        compinit
-        _comp_options+=(globdots)		# Include hidden files.
+# edit in editor
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+bindkey "^E" edit-command-line
+bindkey '^ ' autosuggest-execute
 
-        # edit in editor
-        autoload -z edit-command-line
-        zle -N edit-command-line
-        bindkey "^X^E" edit-command-line
-        bindkey "^E" edit-command-line
-        bindkey '^ ' autosuggest-execute
+fancy-ctrl-z() {
+	if [[ $#BUFFER -eq 0 ]]; then
+		BUFFER="fg"
+		zle accept-line -w
+	else
+		zle push-input -w
+		zle clear-screen -w
+	fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
-        fancy-ctrl-z () {
-          if [[ $#BUFFER -eq 0 ]]; then
-            BUFFER="fg"
-            zle accept-line -w
-          else
-            zle push-input -w
-            zle clear-screen -w
-          fi
-        }
-        zle -N fancy-ctrl-z
-        bindkey '^Z' fancy-ctrl-z
-
-alias aws-ass="source source-assume"
 alias cat="bat"
 alias cp="cp -riv"
 alias curl="curlie"
@@ -82,14 +79,12 @@ alias -g "..."="../.."
 alias -g "...."="../../.."
 alias -g "....."="../../../.."
 
+stty stop undef # Disable ctrl-s to freeze terminal.
+bindkey -e      # emacs mode
 
-
-        stty stop undef		# Disable ctrl-s to freeze terminal.
-           bindkey -e # emacs mode
-
-        setopt appendhistory
-        setopt COMPLETE_ALIASES
-        setopt SHARE_HISTORY
-        setopt HIST_IGNORE_DUPS
+setopt appendhistory
+setopt COMPLETE_ALIASES
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
 
 bindkey -e
