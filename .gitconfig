@@ -1,0 +1,5 @@
+[user]
+	name = Tom
+	email = thomaspatricksteven@gmail.com
+[init]
+	defaultBranch = main

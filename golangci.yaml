@@ -1,0 +1,27 @@
+output:
+  format: json
+  linters:
+    enable-all: true
+    disable:
+      - dupl
+      - exhaustivestruct
+      - exhaustruct
+      - forbidigo
+      - lll
+      - tagliatelle
+      - gomnd
+      - gci
+  linters-settings:
+    nlreturn:
+      block-size: 2
+    varnamelen:
+      ignore-names:
+        - tc
+      ignore-decls:
+        - w http.ResponseWriter
+        - r *http.Request
+        - is *is.I
+        - wg sync.WaitGroup
+        - r rune
+        - e *echo.Echo
+        - c echo.Context
