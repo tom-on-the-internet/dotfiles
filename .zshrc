@@ -14,7 +14,8 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # Include hidden files.
 
-EDTIOR=nvim
+export EDITOR=nvim
+export BROWSER=google-chrome-stable
 
 source <(/usr/bin/starship init zsh --print-full-init)
 source ~/zsh/zoxide.zsh
