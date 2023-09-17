@@ -3,6 +3,7 @@ local padding = 40
 
 return {
 	font_size = 16,
+	scrollback_lines = 10000,
 	enable_tab_bar = false,
 	font = wezterm.font("CaskaydiaCove Nerd Font Mono"),
 	line_height = 1.1,
