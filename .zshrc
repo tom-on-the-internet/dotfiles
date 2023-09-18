@@ -12,7 +12,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots) # Include hidden files.
+_comp_options+=(globdots) # Include hidden files. 
 
 export EDITOR=nvim
 export BROWSER=google-chrome-stable
@@ -25,6 +25,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 
 export PATH=$PATH:/home/tom/.local/bin
 export PATH=$PATH:/home/tom/go/bin
@@ -51,18 +52,6 @@ bindkey "^X^E" edit-command-line
 bindkey "^E" edit-command-line
 bindkey '^ ' autosuggest-execute
 
-fancy-ctrl-z() {
-	if [[ $#BUFFER -eq 0 ]]; then
-		BUFFER="fg"
-		zle accept-line -w
-	else
-		zle push-input -w
-		zle clear-screen -w
-	fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 alias cat="bat"
 alias cp="cp -riv"
 alias curl="curlie"
@@ -88,4 +77,3 @@ setopt COMPLETE_ALIASES
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 
-bindkey -e

@@ -53,7 +53,7 @@
   "trouble.nvim": { "branch": "main", "commit": "3f85d8ed30e97ceeddbbcf80224245d347053711" },
   "typescript.nvim": { "branch": "main", "commit": "4de85ef699d7e6010528dcfbddc2ed4c2c421467" },
   "venv-selector.nvim": { "branch": "main", "commit": "14d6e866070f759e9014a8053954f835294f56f9" },
-  "vim-fugitive": { "branch": "master", "commit": "7e72fb9cde83ca2c8ba53b1fcf2e8d5e4921fddc" },
+  "vim-fugitive": { "branch": "master", "commit": "7679842b904aa7d290087a52c35229ffe8e7b218" },
   "vim-illuminate": { "branch": "master", "commit": "8c910b2f84ae6acd9b4b17330bb94dd783c0c11a" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
   "which-key.nvim": { "branch": "main", "commit": "7ccf476ebe0445a741b64e36c78a682c1c6118b7" },
