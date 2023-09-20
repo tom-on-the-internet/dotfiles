@@ -12,23 +12,37 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots) # Include hidden files. 
+_comp_options+=(globdots) # Include hidden files.
+
+unamestr=$(uname)
+if [[ "$unamestr" == 'Darwin' ]]; then
+	# macOS
+	source <(/opt/homebrew/bin/starship init zsh --print-full-init)
+	source $HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh
+	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+	source ~/zsh/zsh-fzf-history-search.zsh
+	source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+else
+	# linux
+	export BROWSER=google-chrome-stable
+	source <(/usr/bin/starship init zsh --print-full-init)
+	source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source /usr/share/nvm/init-nvm.sh
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+	source /usr/share/fzf/key-bindings.zsh
+	source /usr/share/fzf/completion.zsh
+fi
 
 export EDITOR=nvim
 export BROWSER=google-chrome-stable
-
-source <(/usr/bin/starship init zsh --print-full-init)
 source ~/zsh/zoxide.zsh
-source ~/zsh/git-helpers.sh
-source /usr/share/nvm/init-nvm.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source ~/zsh/git-helpers.zsh
 
-export PATH=$PATH:/home/tom/.local/bin
-export PATH=$PATH:/home/tom/go/bin
+export PATH=$PATH:${HOME}/.local/bin
+export PATH=$PATH:${HOME}/go/bin
 
 stty stop undef # Disable ctrl-s to freeze terminal.
 
@@ -76,4 +90,3 @@ setopt appendhistory
 setopt COMPLETE_ALIASES
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
-

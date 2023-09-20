@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.relativenumber = false
 vim.opt.swapfile = false
+vim.opt.conceallevel = 0 -- don't hide my json strings
+vim.opt.spell = false
