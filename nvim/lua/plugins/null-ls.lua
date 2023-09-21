@@ -14,7 +14,6 @@ return {
         null_ls.builtins.diagnostics.cspell.with({
           config = cspell_config,
           extra_args = { "--config", vim.fn.expand("$HOME/.config/nvim/cspell.json") },
-
           diagnostics_postprocess = function(diagnostic)
             diagnostic.severity = vim.diagnostic.severity.WARN
           end,
