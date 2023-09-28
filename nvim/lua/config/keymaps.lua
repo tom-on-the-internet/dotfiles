@@ -34,5 +34,21 @@ map("n", "<leader>o", "<cmd>silent! only<cr>", { desc = "Close other windows" })
 map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
 map("n", "<leader>gl", "<cmd>0Gclog<cr>", { desc = "Git log current file" })
 map("n", "<leader>y", "@q", { desc = "Run q macro" })
-map("v", "Y", '"+y', { desc = "Send selection to clipboard" })
 map("n", "<leader>a", copilot, { desc = "toggle copilot" })
+map("n", "<leader>s?", function()
+  require("telescope.builtin").live_grep({
+    search = "",
+    additional_args = { "--hidden", "--no-ignore" },
+    prompt_title = "Search (hidden and ignored)",
+  })
+end, { desc = "Grep including hidden and ignored" })
+map("n", "<leader>fa", function()
+  require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
+end, { desc = "Find files including hidden and ignored" })
+map("n", "<leader>fc", ":let @+=@%<cr>", { desc = "Copy current file name to clipboard" })
+map(
+  "n",
+  "<leader>fl",
+  ":let @+=expand('%') .. ':' .. line('.')<cr>",
+  { desc = "Copy current file name and line number to clipboard" }
+)

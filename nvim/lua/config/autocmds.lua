@@ -2,18 +2,21 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 --
-local autocomplete_group = vim.api.nvim_create_augroup("vimrc_autocompletion", { clear = true })
-local cmp = require("cmp")
+
+local function augroup(name)
+  return vim.api.nvim_create_augroup("tom_" .. name, { clear = true })
+end
+
+-- delete this group created by lazyvim
+-- we'll make our own
+local wrap_spell_autocmd = vim.api.nvim_get_autocmds({ group = "lazyvim_wrap_spell" })[1]
+vim.api.nvim_del_autocmd(wrap_spell_autocmd.id)
+
+-- wrap these file types
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "sql", "mysql", "plsql" },
+  group = augroup("wrap"),
+  pattern = { "gitcommit", "markdown" },
   callback = function()
-    cmp.setup.buffer({
-      sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
-        { name = "luasnip" },
-      },
-    })
+    vim.opt_local.wrap = true
   end,
-  group = autocomplete_group,
 })

@@ -9,7 +9,7 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local null_ls = require("null-ls")
-      opts.sources = vim.list_extend({
+      opts.sources = vim.list_extend(opts.sources, {
         -- Order of formatters matters. They are used in order of appearance.
         null_ls.builtins.diagnostics.cspell.with({
           config = cspell_config,
@@ -25,6 +25,10 @@ return {
           method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
           to_temp_file = false,
         }),
+        null_ls.builtins.diagnostics.mdl.with({
+          extra_args = { "-r", "~MD005,~MD007,~MD013,~MD026,~MD029" },
+        }),
+
         null_ls.builtins.diagnostics.php,
         null_ls.builtins.formatting.shfmt.with({
           extra_args = { "-i", "2", "-sr", "-s", "-ci" },
@@ -48,7 +52,7 @@ return {
             "graphql",
           },
         }),
-      }, opts.sources)
+      })
     end,
   },
 }

@@ -4,6 +4,7 @@ return {
     ---@class PluginLspOpts
     opts = {
       servers = {
+        angularls = {},
         intelephense = { init_options = {
           licenceKey = "00G0KD8UUF391H9",
         } },
@@ -21,6 +22,14 @@ return {
         },
       },
       setup = {
+        angularls = function()
+          local util = require("lspconfig.util")
+
+          require("lspconfig").angularls.setup({
+            root_dir = util.root_pattern("angular.json", "nx.json"),
+          })
+          return true
+        end,
         eslint = function()
           require("lazyvim.util").on_attach(function(client)
             if client.name == "eslint" then
