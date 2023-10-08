@@ -23,7 +23,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 	source ~/zsh/zsh-fzf-history-search.zsh
 	source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 else
 	# linux
 	export BROWSER=google-chrome-stable
@@ -37,12 +36,13 @@ else
 fi
 
 export EDITOR=nvim
-export BROWSER=google-chrome-stable
 source ~/zsh/zoxide.zsh
 source ~/zsh/git-helpers.zsh
 
 export PATH=$PATH:${HOME}/.local/bin
+export PATH=$PATH:${HOME}/.npm-packages/bin
 export PATH=$PATH:${HOME}/go/bin
+
 
 stty stop undef # Disable ctrl-s to freeze terminal.
 
@@ -66,7 +66,7 @@ bindkey "^X^E" edit-command-line
 bindkey "^E" edit-command-line
 bindkey '^ ' autosuggest-execute
 
-alias cat="bat"
+alias cat="bat --theme base16-256"
 alias cp="cp -riv"
 alias curl="curlie"
 alias dc="docker compose"
@@ -90,3 +90,10 @@ setopt appendhistory
 setopt COMPLETE_ALIASES
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
+
+# bun completions
+[ -s "/Users/thomas.steven/.bun/_bun" ] && source "/Users/thomas.steven/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

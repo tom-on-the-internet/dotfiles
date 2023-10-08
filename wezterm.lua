@@ -2,19 +2,20 @@ local wezterm = require("wezterm")
 local padding = 40
 
 return {
-	font_size = 16,
+	font_size = 22,
 	scrollback_lines = 10000,
 	enable_tab_bar = false,
 	font = wezterm.font("CaskaydiaCove Nerd Font Mono"),
+	audible_bell = "Disabled",
 	line_height = 1.1,
 	adjust_window_size_when_changing_font_size = false,
 	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
-	color_scheme = "Synthwave Alpha (Gogh)",
-	window_background_opacity = 0.93,
+	color_scheme = "Tokyo Night Moon",
+	window_background_opacity = 0.97,
 	colors = {
-		background = "#230735",
-		foreground = "8BA7A7",
+		-- background = "#230735",
+		-- foreground = "8BA7A7",
 	},
 	window_padding = {
 		left = padding,
