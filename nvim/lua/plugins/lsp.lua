@@ -5,6 +5,7 @@ return {
         opts = {
             servers = {
                 angularls = {},
+                templ = {},
                 intelephense = {
                     init_options = {
                         licenceKey = "00G0KD8UUF391H9",
@@ -24,6 +25,9 @@ return {
                 },
             },
             setup = {
+                templ = function()
+                    require("lspconfig").templ.setup({})
+                end,
                 angularls = function()
                     local util = require("lspconfig.util")
 
@@ -33,7 +37,7 @@ return {
                     return true
                 end,
                 eslint = function()
-                    require("lazyvim.util").on_attach(function(client)
+                    require("lazyvim.util").lsp.on_attach(function(client)
                         if client.name == "eslint" then
                             client.server_capabilities.documentFormattingProvider =
                                 true

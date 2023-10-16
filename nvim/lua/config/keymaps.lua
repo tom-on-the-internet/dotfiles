@@ -34,7 +34,7 @@ map("n", "<leader>o", "<cmd>silent! only<cr>", { desc = "Close other windows" })
 map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
 map("n", "<leader>gl", "<cmd>0Gclog<cr>", { desc = "Git log current file" })
 map("n", "<leader>y", "@q", { desc = "Run q macro" })
-map("n", "<leader>a", copilot, { desc = "toggle copilot" })
+map("n", "<leader>cc", copilot, { desc = "toggle copilot" })
 map("n", "<leader>s?", function()
     require("telescope.builtin").live_grep({
         search = "",
@@ -64,3 +64,97 @@ end, { desc = "Copy link to Github to clipboard" })
 map("v", "<leader>gy", function()
     require("gitlinker").get_buf_range_url("v")
 end, { desc = "Copy link to Github to clipboard" })
+map("n", "<leader>Y", function()
+    vim.cmd("let @+ = expand('%')")
+end, { desc = "Copy relative file path to clipboard" })
+
+local function get_visual_selection()
+    vim.cmd('noau normal! "vy"')
+    return vim.fn.getreg("v")
+end
+
+local function dedupe(arr)
+    local hash = {}
+    local res = {}
+
+    for _, v in ipairs(arr) do
+        if not hash[v] then
+            res[#res + 1] = v
+            hash[v] = true
+        end
+    end
+
+    return res
+end
+
+local function add_unknown_word()
+    local unknown_word = get_visual_selection()
+    if unknown_word:gsub("%s+", "") == "" then
+        vim.notify("No word selected. Nothing added to dictionary.", "warn")
+        return
+    end
+    if unknown_word:gsub("%s+", "") ~= unknown_word then
+        vim.notify("Can't add a word to dictionary that has spaces.", "warn")
+        return
+    end
+
+    local cspell_json_file = vim.fn.expand("$HOME/.config/nvim/cspell.json")
+    -- Open and read the JSON file
+    local json_file = io.open(cspell_json_file, "r")
+
+    if json_file == nil then
+        vim.notify(cspell_json_file .. " is missing.", "warn")
+        return
+    end
+
+    local json_content = json_file:read("*a")
+    json_file:close()
+
+    local lua_table = vim.fn.json_decode(json_content)
+
+    if lua_table == nil then
+        vim.notify(cspell_json_file .. " is empty.", "warn")
+        return
+    end
+
+    local words = lua_table.words
+
+    if words == nil then
+        vim.notify(cspell_json_file .. " is invalid.", "warn")
+        return
+    end
+
+    vim.list_extend(words, { unknown_word })
+    words = dedupe(lua_table.words)
+    table.sort(words)
+    lua_table.words = words
+    local json_string = vim.fn.json_encode(lua_table)
+
+    -- Open the JSON file for writing (this will overwrite the existing data)
+    local json_file_write = io.open(cspell_json_file, "w")
+    if json_file_write == nil then
+        vim.notify(cspell_json_file .. " is missing.", "warn")
+        return
+    end
+
+    -- Write the JSON data to the file
+    json_file_write:write(json_string)
+    json_file_write:close()
+
+    vim.notify(unknown_word .. " added to cspell.json")
+end
+
+map(
+    "v",
+    "<leader>cs",
+    add_unknown_word,
+    { desc = "Add word to spell cspell dictionary" }
+)
+
+map("n", "<leader>xxx", function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    print(vim.bo[bufnr].filetype)
+    -- vim.bo[bufnr].buflisted = true -- same as vim.bo.buflisted = true
+    -- print(vim.bo.comments)
+    -- print(vim.bo.baz) -- error: invalid key
+end, { desc = "Add word to spell cspell dictionary" })

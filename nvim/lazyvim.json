@@ -1,0 +1,9 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.editor.aerial"
+  ],
+  "news": {
+    "NEWS.md": "2123"
+  },
+  "version": 2
+}
