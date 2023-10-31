@@ -34,7 +34,7 @@ map("n", "<leader>o", "<cmd>silent! only<cr>", { desc = "Close other windows" })
 map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
 map("n", "<leader>gl", "<cmd>0Gclog<cr>", { desc = "Git log current file" })
 map("n", "<leader>y", "@q", { desc = "Run q macro" })
-map("n", "<leader>cc", copilot, { desc = "toggle copilot" })
+map("n", "<leader>cc", copilot, { desc = "Toggle Copilot" })
 map("n", "<leader>s?", function()
     require("telescope.builtin").live_grep({
         search = "",
@@ -150,11 +150,3 @@ map(
     add_unknown_word,
     { desc = "Add word to spell cspell dictionary" }
 )
-
-map("n", "<leader>xxx", function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    print(vim.bo[bufnr].filetype)
-    -- vim.bo[bufnr].buflisted = true -- same as vim.bo.buflisted = true
-    -- print(vim.bo.comments)
-    -- print(vim.bo.baz) -- error: invalid key
-end, { desc = "Add word to spell cspell dictionary" })

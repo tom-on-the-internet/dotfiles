@@ -8,6 +8,7 @@ return {
         formatters_by_ft = {
             ["php"] = { { "prettierd", "prettier" } },
             ["sh"] = { { "shfmt" } },
+            ["go"] = { "gofumpt", "golines", "goimports" },
             ["templ"] = { "templ", "trim_whitespace" },
             -- ["*"] = { "codespell" },
             -- Use the "_" filetype to run formatters on filetypes that don't
