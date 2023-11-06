@@ -5,6 +5,7 @@ return {
         opts = {
             servers = {
                 angularls = {},
+                taplo = {},
                 templ = {},
                 intelephense = {
                     init_options = {
@@ -26,6 +27,9 @@ return {
             setup = {
                 templ = function()
                     require("lspconfig").templ.setup({})
+                end,
+                taplo = function()
+                    require("lspconfig").taplo.setup({})
                 end,
                 angularls = function()
                     local util = require("lspconfig.util")

@@ -1,5 +1,20 @@
 return {
     {
+        {
+            "EdenEast/nightfox.nvim", -- lazy
+            config = function()
+                require("nightfox").setup({ options = { transparent = true } })
+                vim.cmd("colorscheme terafox")
+            end,
+        },
+        {
+            "rcarriga/nvim-notify",
+            opts = {
+                background_colour = "#000000",
+            },
+        },
+    },
+    {
         "folke/tokyonight.nvim",
         opts = { style = "moon", transparent = true },
     },

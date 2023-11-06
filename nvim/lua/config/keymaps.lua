@@ -150,3 +150,7 @@ map(
     add_unknown_word,
     { desc = "Add word to spell cspell dictionary" }
 )
+
+map("n", "<leader>cw", function()
+    vim.opt.wrap = not vim.opt.wrap:get()
+end, { desc = "Adjust line wrapping" })
