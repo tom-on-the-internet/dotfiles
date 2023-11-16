@@ -6,7 +6,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
         formatters_by_ft = {
-            ["php"] = { { "prettierd", "prettier" } },
+            ["php"] = { { "prettier" } },
             ["sh"] = { { "shfmt" } },
             ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
             ["templ"] = { "templ", "trim_whitespace" },

@@ -5,6 +5,7 @@ return {
         opts = {
             servers = {
                 angularls = {},
+                -- phpactor = {},
                 taplo = {},
                 templ = {},
                 intelephense = {
