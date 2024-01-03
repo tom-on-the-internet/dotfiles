@@ -11,7 +11,6 @@ require("lazy").setup({
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
         -- import any extras modules here
-        -- { import = "lazyvim.plugins.extras.coding.copilot" },
         { import = "lazyvim.plugins.extras.coding.yanky" },
         { import = "lazyvim.plugins.extras.editor.mini-files" },
         { import = "lazyvim.plugins.extras.editor.aerial" },
@@ -41,7 +40,14 @@ require("lazy").setup({
         -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
     install = { colorscheme = { "tokyonight", "habamax" } },
-    checker = { enabled = true }, -- automatically check for plugin updates
+    checker = {
+        -- automatically check for plugin updates
+        enabled = false,
+        concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+        notify = true, -- get a notification when new updates are found
+        frequency = 18000, -- check for updates every 5 hours
+        check_pinned = false, -- check for pinned packages that can't be updated
+    },
     performance = {
         rtp = {
             -- disable some rtp plugins

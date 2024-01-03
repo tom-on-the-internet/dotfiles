@@ -16,25 +16,10 @@ local function map(mode, lhs, rhs, opts)
     end
 end
 
-local copilot_on = false
-
-local function copilot()
-    if copilot_on then
-        copilot_on = false
-        vim.notify("Copilot disabled", "info", { title = "🤖️" })
-    else
-        copilot_on = true
-        vim.notify("Copilot enabled", "info", { title = "🤖️" })
-    end
-
-    require("copilot.suggestion").toggle_auto_trigger()
-end
-
 map("n", "<leader>o", "<cmd>silent! only<cr>", { desc = "Close other windows" })
 map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
 map("n", "<leader>gl", "<cmd>0Gclog<cr>", { desc = "Git log current file" })
 map("n", "<leader>y", "@q", { desc = "Run q macro" })
-map("n", "<leader>cc", copilot, { desc = "Toggle Copilot" })
 map("n", "<leader>s?", function()
     require("telescope.builtin").live_grep({
         search = "",
@@ -154,3 +139,7 @@ map(
 map("n", "<leader>cw", function()
     vim.opt.wrap = not vim.opt.wrap:get()
 end, { desc = "Adjust line wrapping" })
+
+map("n", "<leader>bn", function()
+    vim.cmd("NoNeckPain")
+end, { desc = "No neck pain" })
