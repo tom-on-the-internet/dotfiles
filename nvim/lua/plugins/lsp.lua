@@ -5,8 +5,10 @@ return {
         opts = {
             servers = {
                 angularls = {},
-                -- phpactor = {},
-                taplo = {},
+                cssls = {},
+                jsonls = {},
+                html = {},
+                emmet_language_server = {},
                 templ = {},
                 intelephense = {
                     init_options = {
@@ -24,13 +26,14 @@ return {
                         },
                     },
                 },
+                stylelint_lsp = {},
             },
             setup = {
+                stylelint_lsp = function()
+                    require("lspconfig").stylelint_lsp.setup({})
+                end,
                 templ = function()
                     require("lspconfig").templ.setup({})
-                end,
-                taplo = function()
-                    require("lspconfig").taplo.setup({})
                 end,
                 angularls = function()
                     local util = require("lspconfig.util")
@@ -39,6 +42,9 @@ return {
                         root_dir = util.root_pattern("angular.json", "nx.json"),
                     })
                     return true
+                end,
+                elp = function()
+                    require("lspconfig").emmet_language_server.setup({})
                 end,
                 eslint = function()
                     require("lazyvim.util").lsp.on_attach(function(client)

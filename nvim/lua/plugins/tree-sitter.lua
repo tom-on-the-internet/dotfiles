@@ -15,15 +15,12 @@ return {
                 "python",
                 "query",
                 "regex",
-                "templ",
                 "tsx",
+                "templ",
                 "typescript",
                 "vim",
                 "yaml",
             },
         },
-    },
-    {
-        "vrischmann/tree-sitter-templ",
     },
 }

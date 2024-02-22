@@ -7,3 +7,6 @@ vim.opt.conceallevel = 0 -- don't hide my json strings
 vim.opt.spell = false -- I use cspell
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.cursorline = false
+
+vim.filetype.add({ extension = { templ = "templ" } })
