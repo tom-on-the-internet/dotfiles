@@ -1,10 +1,32 @@
 return {
+    -- {
+    --     "nyoom-engineering/oxocarbon.nvim",
+    --     -- Add in any other configuration;
+    --     --   event = foo,
+    --     --   config = bar
+    --     --   end,
+    --     config = function()
+    --         vim.cmd.colorscheme("oxocarbon")
+    --     end,
+    -- },
     {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "catppuccin-mocha",
-        },
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("moonfly")
+        end,
     },
+    -- {
+    --     "dasupradyumna/midnight.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --
+    --     config = function()
+    --         vim.cmd.colorscheme("midnight")
+    --     end,
+    -- },
     -- {
     --     "rebelot/kanagawa.nvim",
     --     config = function()
@@ -102,11 +124,11 @@ return {
     --     "folke/tokyonight.nvim",
     --     opts = { style = "moon", transparent = true },
     -- },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-    },
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    --     priority = 1000,
+    -- },
     -- {
     --   "maxmx03/fluoromachine.nvim",
     --   config = function()

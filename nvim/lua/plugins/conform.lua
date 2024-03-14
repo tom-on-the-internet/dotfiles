@@ -9,6 +9,7 @@ return {
     opts = {
         formatters_by_ft = {
             ["php"] = { { "prettier" } },
+            ["angular"] = { { "prettier" } },
             ["sh"] = { { "shfmt" } },
             ["templ"] = { { "templ" } },
             ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
