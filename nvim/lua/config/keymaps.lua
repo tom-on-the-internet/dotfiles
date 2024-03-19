@@ -45,12 +45,6 @@ map(
     { desc = "Copy current file name and line number to clipboard" }
 )
 
-map("n", "<leader>gy", function()
-    require("gitlinker").get_buf_range_url("n")
-end, { desc = "Copy link to Github to clipboard" })
-map("v", "<leader>gy", function()
-    require("gitlinker").get_buf_range_url("v")
-end, { desc = "Copy link to Github to clipboard" })
 map("n", "<leader>Y", function()
     vim.cmd("let @+ = expand('%')")
 end, { desc = "Copy relative file path to clipboard" })
@@ -142,6 +136,7 @@ map("n", "<leader>cw", function()
     vim.opt.wrap = not vim.opt.wrap:get()
 end, { desc = "Adjust line wrapping" })
 
-map("n", "<leader>bn", function()
-    vim.cmd("NoNeckPain")
-end, { desc = "No neck pain" })
+map("n", "<leader>n", function()
+    local neogit = require("neogit")
+    neogit.open()
+end, { desc = "Neogit" })
