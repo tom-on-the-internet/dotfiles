@@ -18,7 +18,9 @@ end
 
 map("n", "<leader>o", "<cmd>silent! only<cr>", { desc = "Close other windows" })
 map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
-map("n", "<leader>gl", "<cmd>0Gclog<cr>", { desc = "Git log current file" })
+map("n", "<leader>gl", function()
+    require("telescope").extensions.git_file_history.git_file_history()
+end, { desc = "Git log current file" })
 map("n", "<leader>y", "@q", { desc = "Run q macro" })
 map("n", "<leader>s?", function()
     require("telescope.builtin").live_grep({
