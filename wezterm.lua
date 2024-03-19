@@ -12,6 +12,14 @@ return {
     window_decorations = "RESIZE",
     window_close_confirmation = "NeverPrompt",
     color_scheme = "carbonfox",
+    -- background = {
+    --     {
+    --         source = {
+    --             File = { path = wezterm.config_dir .. "/bg.gif" },
+    --         },
+    --         hsb = { brightness = 0.15 },
+    --     },
+    -- },
     window_padding = {
         left = padding,
         right = padding,
