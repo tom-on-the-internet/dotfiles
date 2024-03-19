@@ -27,7 +27,6 @@ return {
             vue = { "cspell" },
             yaml = { "cspell" },
         },
-
         linters = {
             markdownlint = {
                 args = {
