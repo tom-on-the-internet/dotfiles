@@ -136,7 +136,13 @@ map("n", "<leader>cw", function()
     vim.opt.wrap = not vim.opt.wrap:get()
 end, { desc = "Adjust line wrapping" })
 
-map("n", "<leader>n", function()
-    local neogit = require("neogit")
-    neogit.open()
-end, { desc = "Neogit" })
+vim.g.cmp_toggle = true
+map("n", "<leader>ua", function()
+    vim.g.cmp_toggle = not vim.g.cmp_toggle
+    require("cmp").setup({ enabled = vim.g.cmp_toggle })
+    if vim.g.cmp_toggle then
+        vim.notify("completions are ON")
+    else
+        vim.notify("completions are OFF")
+    end
+end, { desc = "Toggle Completion" })
