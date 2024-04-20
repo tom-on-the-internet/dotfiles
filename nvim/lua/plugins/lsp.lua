@@ -9,7 +9,6 @@ return {
                 jsonls = {},
                 html = {},
                 emmet_language_server = {},
-                templ = {},
                 intelephense = {
                     init_options = {
                         licenceKey = "00G0KD8UUF391H9",
@@ -32,12 +31,8 @@ return {
                 stylelint_lsp = function()
                     require("lspconfig").stylelint_lsp.setup({})
                 end,
-                templ = function()
-                    require("lspconfig").templ.setup({})
-                end,
                 angularls = function()
                     local util = require("lspconfig.util")
-
                     require("lspconfig").angularls.setup({
                         root_dir = util.root_pattern("angular.json", "nx.json"),
                     })

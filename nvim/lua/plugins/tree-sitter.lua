@@ -17,7 +17,6 @@ return {
                 "query",
                 "regex",
                 "tsx",
-                "templ",
                 "typescript",
                 "vim",
                 "yaml",

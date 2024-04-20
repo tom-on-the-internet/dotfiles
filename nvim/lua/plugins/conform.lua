@@ -11,7 +11,6 @@ return {
             ["php"] = { { "prettier" } },
             ["angular"] = { { "prettier" } },
             ["sh"] = { { "shfmt" } },
-            ["templ"] = { { "templ" } },
             ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
             -- ["*"] = { "codespell" },
             -- Use the "_" filetype to run formatters on filetypes that don't

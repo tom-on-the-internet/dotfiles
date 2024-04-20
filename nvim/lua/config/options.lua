@@ -8,9 +8,3 @@ vim.opt.spell = false -- I use cspell
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.cursorline = false
-
-vim.filetype.add({ extension = { templ = "templ" } })
-
--- hacky, please fix this
--- vim.cmd("autocmd BufRead,BufEnter *.template.html set filetype=angular")
--- vim.cmd("autocmd BufRead,BufEnter *.template.html set commentstring=<!--%s-->")
