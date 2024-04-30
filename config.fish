@@ -50,8 +50,8 @@ alias rm='rm -v'
 alias tf='terraform'
 alias tree='eza --tree'
 
-alias ll='eza -al --group-directories-first --icons --color-scale'
-alias ls='eza --group-directories-first --icons --color-scale'
+alias ll='eza -al --group-directories-first --icons'
+alias ls='eza --group-directories-first --icons'
 alias e='nvim'
 
 set -g fish_greeting
