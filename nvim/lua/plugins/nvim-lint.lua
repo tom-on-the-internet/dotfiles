@@ -6,26 +6,8 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
         linters_by_ft = {
-            css = { "cspell" },
-            go = { "cspell" },
-            graphql = { "cspell" },
-            handlebars = { "cspell" },
-            html = { "cspell" },
-            javascript = { "cspell" },
-            javascriptreact = { "cspell" },
-            json = { "cspell" },
-            jsonc = { "cspell" },
-            less = { "cspell" },
-            lua = { "cspell" },
-            markdown = { "markdownlint", "cspell" },
-            php = { "cspell" },
-            ruby = { "cspell" },
-            scss = { "cspell" },
-            sh = { "shellcheck", "cspell" },
-            typescript = { "cspell" },
-            typescriptreact = { "cspell" },
-            vue = { "cspell" },
-            yaml = { "cspell" },
+            markdown = { "markdownlint" },
+            sh = { "shellcheck" },
         },
         linters = {
             markdownlint = {
