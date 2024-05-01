@@ -12,7 +12,8 @@ return {
     adjust_window_size_when_changing_font_size = false,
     window_decorations = "RESIZE",
     window_close_confirmation = "NeverPrompt",
-    color_scheme = "carbonfox",
+    -- color_scheme = "carbonfox",
+    color_scheme = "neobones_dark",
     window_padding = {
         left = padding,
         right = padding,
