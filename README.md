@@ -8,9 +8,10 @@ defaults write -g KeyRepeat -int 1
 ## Fisher
 
 ```sh
-jorgebucaran/fisher
+h-matsuo/fish-color-scheme-switcher
 jethrokuan/z
+jorgebucaran/fisher
+lewisacidic/fish-git-abbr
 patrickf1/fzf.fish
 rstacruz/fish-npm-global
-lewisacidic/fish-git-abbr
 ```

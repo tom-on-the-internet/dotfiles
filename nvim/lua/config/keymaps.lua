@@ -68,17 +68,7 @@ local function dedupe(arr)
     return res
 end
 
-local function add_unknown_word()
-    local unknown_word = get_visual_selection()
-    if unknown_word:gsub("%s+", "") == "" then
-        vim.notify("No word selected. Nothing added to dictionary.", "warn")
-        return
-    end
-    if unknown_word:gsub("%s+", "") ~= unknown_word then
-        vim.notify("Can't add a word to dictionary that has spaces.", "warn")
-        return
-    end
-
+local function add_unknown_word(unknown_word)
     local cspell_json_file = vim.fn.expand("$HOME/.config/nvim/cspell.json")
     -- Open and read the JSON file
     local json_file = io.open(cspell_json_file, "r")
@@ -121,14 +111,55 @@ local function add_unknown_word()
     -- Write the JSON data to the file
     json_file_write:write(json_string)
     json_file_write:close()
+end
+
+local function add_selected_word()
+    local unknown_word = get_visual_selection()
+    if unknown_word:gsub("%s+", "") == "" then
+        vim.notify("No word selected. Nothing added to dictionary.", "warn")
+        return
+    end
+    if unknown_word:gsub("%s+", "") ~= unknown_word then
+        vim.notify("Can't add a word to dictionary that has spaces.", "warn")
+        return
+    end
+
+    add_unknown_word(unknown_word)
 
     vim.notify(unknown_word .. " added to cspell.json")
 end
 
+local function add_all_unknown_words_to_dictionary()
+    local diagnostics = vim.diagnostic.get(0)
+    local uniqueMessages = {}
+    local uniqueCount = 0
+    for _, diagnostic in ipairs(diagnostics) do
+        if diagnostic.source == "cspell" then
+            local message = diagnostic.message
+            local unknown_word = message:match("%((.-)%)")
+            if unknown_word then
+                if not uniqueMessages[unknown_word] then
+                    add_unknown_word(unknown_word)
+                    uniqueMessages[unknown_word] = true
+                    uniqueCount = uniqueCount + 1
+                end
+            end
+        end
+    end
+    print("Added " .. uniqueCount .. " words to the dictionary.")
+end
+
+map(
+    "n",
+    "<leader>cW",
+    add_all_unknown_words_to_dictionary,
+    { desc = "Add all unknown words to dictionary." }
+)
+
 map(
     "v",
     "<leader>cs",
-    add_unknown_word,
+    add_selected_word,
     { desc = "Add word to spell cspell dictionary" }
 )
 
