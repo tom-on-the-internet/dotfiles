@@ -7,6 +7,7 @@ return {
     opts = {
         linters_by_ft = {
             css = { "cspell" },
+            gitcommit = { "cspell" },
             go = { "cspell" },
             graphql = { "cspell" },
             handlebars = { "cspell" },
