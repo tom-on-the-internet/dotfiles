@@ -23,6 +23,7 @@ return {
             ruby = { "cspell" },
             scss = { "cspell" },
             sh = { "shellcheck", "cspell" },
+            terraform = { "tflint", "trivy", "cspell" },
             typescript = { "cspell" },
             typescriptreact = { "cspell" },
             vue = { "cspell" },

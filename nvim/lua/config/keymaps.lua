@@ -153,14 +153,14 @@ map(
     "n",
     "<leader>cW",
     add_all_unknown_words_to_dictionary,
-    { desc = "Add all unknown words to dictionary." }
+    { desc = "Add all unknown words to cspell dictionary." }
 )
 
 map(
     "v",
     "<leader>cs",
     add_selected_word,
-    { desc = "Add word to spell cspell dictionary" }
+    { desc = "Add word to cspell dictionary" }
 )
 
 map("n", "<leader>cw", function()
