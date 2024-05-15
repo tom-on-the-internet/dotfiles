@@ -1,19 +1,18 @@
 local wezterm = require("wezterm")
-local padding = 20
+local padding = 40
 
 return {
     font_size = 22,
-    font = wezterm.font("Liga SFMono Nerd Font"),
+    font = wezterm.font("MonoLisa Nerd Font Mono"),
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, --disable ligatures
     scrollback_lines = 10000,
     enable_tab_bar = false,
     audible_bell = "Disabled",
-    line_height = 1.2,
+    line_height = 1.4,
     adjust_window_size_when_changing_font_size = false,
     window_decorations = "RESIZE",
     window_close_confirmation = "NeverPrompt",
-    -- color_scheme = "carbonfox",
-    color_scheme = "neobones_dark",
+    color_scheme = "Night Owl (Gogh)",
     window_padding = {
         left = padding,
         right = padding,

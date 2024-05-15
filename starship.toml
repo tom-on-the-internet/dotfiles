@@ -4,7 +4,7 @@ command_timeout = 2000
 
 palette = 'catppuccin_mocha'
 
-format = '[](surface0)[󱍢 󰬁󰬹󰫺](fg:rosewater bg:surface0)[](surface0) $all'
+format = '[](surface0)[󱍢 tom](fg:rosewater bg:surface0)[](surface0) $all'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

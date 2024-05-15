@@ -1,5 +1,3 @@
-scheme set zenburn
-
 fish_add_path -g /opt/homebrew/bin/
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.npm-packages/bin
@@ -14,10 +12,10 @@ alias mkdir='mkdir -vp'
 alias mv='mv -iv'
 alias rm='rm -v'
 alias tf='terraform'
-alias tree='eza --tree --color never'
+alias tree='eza --tree --color always'
 
-alias ll='eza -al --group-directories-first --icons --color never'
-alias ls='eza --group-directories-first --icons --color never'
+alias ll='eza -al --group-directories-first --icons --color always'
+alias ls='eza --group-directories-first --icons --color always'
 alias e='nvim'
 
 set -g fish_greeting
@@ -55,3 +53,5 @@ end
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+
+alias assume="source (brew --prefix)/bin/assume.fish"
