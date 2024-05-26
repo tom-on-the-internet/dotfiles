@@ -6,15 +6,19 @@ linters:
     - depguard
     - dupl
     - dupword
+    - err113
     - exhaustivestruct
     - exhaustruct
     - forbidigo
     - gci
     - gomnd
     - lll
+    - mnd
     - nlreturn
     - tagliatelle
     - varnamelen
+    - wrapcheck
+    - wsl
 linters-settings:
   # nlreturn:
   #   block-size: 2
