@@ -3,9 +3,7 @@ return {
     opts = function(_, opts)
         local cmp = require("cmp")
         opts.preselect = cmp.PreselectMode.None
-        opts.completion = {
-            completeopt = "menu,menuone,noinsert,noselect",
-        }
+        opts.completion = { completeopt = "menu,menuone,noinsert,noselect" }
 
         opts.mapping = cmp.mapping.preset.insert({
             ["<C-n>"] = cmp.mapping.select_next_item({
@@ -20,5 +18,13 @@ return {
             ["<C-y>"] = LazyVim.cmp.confirm({ select = false }),
         })
         opts.experimental = { ghost_text = false }
+
+        -- Setup up vim-dadbod
+        -- cmp.setup.filetype({ "sql" }, {
+        --     sources = {
+        --         { name = "vim-dadbod-completion" },
+        --         { name = "buffer" },
+        --     },
+        -- })
     end,
 }
