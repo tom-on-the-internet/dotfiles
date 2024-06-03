@@ -12,9 +12,10 @@ require("lazy").setup({
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
         -- import any extras modules here
+        { import = "lazyvim.plugins.extras.coding.luasnip" },
         { import = "lazyvim.plugins.extras.coding.yanky" },
-        { import = "lazyvim.plugins.extras.editor.mini-files" },
         { import = "lazyvim.plugins.extras.editor.aerial" },
+        { import = "lazyvim.plugins.extras.editor.mini-files" },
         { import = "lazyvim.plugins.extras.formatting.prettier" },
         { import = "lazyvim.plugins.extras.lang.docker" },
         { import = "lazyvim.plugins.extras.lang.go" },
@@ -26,7 +27,6 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.lang.typescript" },
         { import = "lazyvim.plugins.extras.lang.yaml" },
         { import = "lazyvim.plugins.extras.linting.eslint" },
-        { import = "lazyvim.plugins.extras.coding.luasnip" },
 
         -- import/override with your plugins
         { import = "plugins" },
