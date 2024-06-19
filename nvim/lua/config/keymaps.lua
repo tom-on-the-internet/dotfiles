@@ -158,7 +158,7 @@ map(
 
 map(
     "v",
-    "<leader>cs",
+    "<leader>cx",
     add_selected_word,
     { desc = "Add word to cspell dictionary" }
 )
