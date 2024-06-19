@@ -23,7 +23,6 @@ return {
             ruby = { "cspell" },
             scss = { "cspell" },
             sh = { "shellcheck", "cspell" },
-            mysql = { "sqlfluff", "cspell" },
             terraform = { "tflint", "trivy", "cspell" },
             typescript = { "cspell" },
             typescriptreact = { "cspell" },

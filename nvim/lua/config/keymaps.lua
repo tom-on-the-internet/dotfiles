@@ -177,3 +177,30 @@ map("n", "<leader>ua", function()
         vim.notify("completions are OFF")
     end
 end, { desc = "Toggle Completion" })
+
+-- Window resize (respecting `v:count`)
+-- for my mac
+map(
+    "n",
+    "<M-Left>",
+    '"<Cmd>vertical resize -" . v:count1 . "<CR>"',
+    { expr = true, replace_keycodes = false, desc = "Decrease window width" }
+)
+map(
+    "n",
+    "<M-Down>",
+    '"<Cmd>resize -"          . v:count1 . "<CR>"',
+    { expr = true, replace_keycodes = false, desc = "Decrease window height" }
+)
+map(
+    "n",
+    "<M-Up>",
+    '"<Cmd>resize +"          . v:count1 . "<CR>"',
+    { expr = true, replace_keycodes = false, desc = "Increase window height" }
+)
+map(
+    "n",
+    "<M-Right>",
+    '"<Cmd>vertical resize +" . v:count1 . "<CR>"',
+    { expr = true, replace_keycodes = false, desc = "Increase window width" }
+)
