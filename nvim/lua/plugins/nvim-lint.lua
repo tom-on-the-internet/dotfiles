@@ -19,7 +19,7 @@ return {
             less = { "cspell" },
             lua = { "cspell" },
             markdown = { "markdownlint", "cspell" },
-            php = { "cspell" },
+            php = { "phpstan", "cspell" },
             ruby = { "cspell" },
             scss = { "cspell" },
             sh = { "shellcheck", "cspell" },
