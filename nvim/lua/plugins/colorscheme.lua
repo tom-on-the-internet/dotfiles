@@ -1,12 +1,23 @@
 return {
     {
-        "oxfist/night-owl.nvim",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        "rebelot/kanagawa.nvim",
+        version = false,
+        lazy = false,
+        priority = 1000,
         config = function()
-            -- load the colorscheme here
-            require("night-owl").setup()
-            vim.cmd.colorscheme("night-owl")
+            require("kanagawa").setup({
+                colors = {
+                    theme = {
+                        all = {
+                            ui = {
+                                bg_gutter = "none",
+                            },
+                        },
+                    },
+                },
+            })
+
+            vim.cmd.colorscheme("kanagawa")
         end,
     },
 }
