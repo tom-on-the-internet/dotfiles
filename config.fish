@@ -62,6 +62,7 @@ set -g fish_pager_color_description $comment
 starship init fish | source
 
 if status is-interactive
+    rbenv init - fish | source
     # Commands to run in interactive sessions can go here
 end
 
