@@ -17,7 +17,14 @@ alias tree='eza --tree --color never'
 
 alias ll='eza -al --group-directories-first --icons --color never'
 alias ls='eza --group-directories-first --icons --color never'
-alias e='nvim'
+
+function e -d "Open Neovim"
+    if $IS_DARK_MODE ="true"
+        nvim --cmd "set background=dark" $argv
+    else
+        nvim --cmd "set background=light" $argv
+    end
+end
 
 set -g fish_greeting
 set -gx EDITOR nvim
