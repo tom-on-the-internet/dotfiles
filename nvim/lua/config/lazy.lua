@@ -10,10 +10,14 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
-        { "LazyVim/LazyVim",                                    import = "lazyvim.plugins" },
+        {
+            "LazyVim/LazyVim",
+            import = "lazyvim.plugins",
+        },
 
         -- import any extras modules here
         { import = "lazyvim.plugins.extras.coding.luasnip" },
+        { import = "lazyvim.plugins.extras.coding.mini-surround" },
         { import = "lazyvim.plugins.extras.coding.yanky" },
         { import = "lazyvim.plugins.extras.editor.aerial" },
         { import = "lazyvim.plugins.extras.editor.mini-files" },
@@ -24,10 +28,10 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.lang.json" },
         { import = "lazyvim.plugins.extras.lang.python" },
         { import = "lazyvim.plugins.extras.lang.ruby" },
+        { import = "lazyvim.plugins.extras.lang.sql" },
         { import = "lazyvim.plugins.extras.lang.tailwind" },
         { import = "lazyvim.plugins.extras.lang.terraform" },
         { import = "lazyvim.plugins.extras.lang.typescript" },
-        { import = "lazyvim.plugins.extras.lang.sql" },
         { import = "lazyvim.plugins.extras.lang.yaml" },
         { import = "lazyvim.plugins.extras.linting.eslint" },
 
@@ -48,8 +52,8 @@ require("lazy").setup({
         -- automatically check for plugin updates
         enabled = false,
         concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-        notify = true,        -- get a notification when new updates are found
-        frequency = 18000,    -- check for updates every 5 hours
+        notify = true, -- get a notification when new updates are found
+        frequency = 18000, -- check for updates every 5 hours
         check_pinned = false, -- check for pinned packages that can't be updated
     },
     performance = {

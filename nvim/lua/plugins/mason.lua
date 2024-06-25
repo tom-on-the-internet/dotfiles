@@ -6,6 +6,7 @@ return {
                 "shellcheck",
                 "shfmt",
                 "golangci-lint-langserver",
+                "erb-formatter",
             })
         end,
     },
