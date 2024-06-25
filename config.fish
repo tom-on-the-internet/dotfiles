@@ -3,6 +3,7 @@ fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.npm-packages/bin
 fish_add_path -g ~/.node_modules/bin
 fish_add_path -g ~/go/bin
+fish_add_path -g ~/.gem/ruby/3.3.0/bin
 
 alias cat='bat'
 alias cp='cp -riv'
