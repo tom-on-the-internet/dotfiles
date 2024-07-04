@@ -17,6 +17,9 @@ return {
                 },
             })
 
+            -- remove soon
+            vim.o.background = "light"
+
             vim.cmd.colorscheme("kanagawa")
         end,
     },
