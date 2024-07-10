@@ -31,13 +31,6 @@ return {
                 stylelint_lsp = function()
                     require("lspconfig").stylelint_lsp.setup({})
                 end,
-                angularls = function()
-                    local util = require("lspconfig.util")
-                    require("lspconfig").angularls.setup({
-                        root_dir = util.root_pattern("angular.json", "nx.json"),
-                    })
-                    return true
-                end,
                 elp = function()
                     require("lspconfig").emmet_language_server.setup({})
                 end,

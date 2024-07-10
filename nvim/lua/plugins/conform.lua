@@ -6,7 +6,6 @@ local formatters = {
     ["php"] = { "prettier" },
     ["sh"] = { "shfmt" },
     ["ruby"] = { "rubocop" },
-    -- ["eruby"] = { "erb_format" },
     ["sql"] = { "sqlfluff" },
     ["mysql"] = { "sqlfluff" },
     ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
