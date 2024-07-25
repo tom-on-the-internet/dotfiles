@@ -34,12 +34,6 @@ map("n", "<leader>fa", function()
 end, { desc = "Find files including hidden and ignored" })
 map(
     "n",
-    "<leader>fc",
-    ":let @+=@%<cr>",
-    { desc = "Copy current file name to clipboard" }
-)
-map(
-    "n",
     "<leader>fl",
     ":let @+=expand('%') .. ':' .. line('.')<cr>",
     { desc = "Copy current file name and line number to clipboard" }
@@ -162,10 +156,6 @@ map(
     add_selected_word,
     { desc = "Add word to cspell dictionary" }
 )
-
-map("n", "<leader>cw", function()
-    vim.opt.wrap = not vim.opt.wrap:get()
-end, { desc = "Adjust line wrapping" })
 
 vim.g.cmp_toggle = true
 map("n", "<leader>ua", function()
