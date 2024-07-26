@@ -5,7 +5,6 @@ require("conform.formatters.shfmt").args = { "-i", "2", "-sr", "-s", "-ci" }
 local formatters = {
     ["php"] = { "prettier" },
     ["sh"] = { "shfmt" },
-    ["ruby"] = { "rubocop" },
     ["sql"] = { "sqlfluff" },
     ["mysql"] = { "sqlfluff" },
     ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },

@@ -20,7 +20,6 @@ return {
             lua = { "cspell" },
             markdown = { "markdownlint", "cspell" },
             php = { "cspell" },
-            ruby = { "rubocop", "cspell" },
             scss = { "cspell" },
             sh = { "shellcheck", "cspell" },
             terraform = { "tflint", "trivy", "cspell" },

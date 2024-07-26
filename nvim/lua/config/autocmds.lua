@@ -21,3 +21,27 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.wrap = true
     end,
 })
+
+-- Function to close all buffers of a specific filetype
+local function close_buffers_by_filetype(filetype)
+    local buffers = vim.api.nvim_list_bufs()
+    for _, buf in ipairs(buffers) do
+        if
+            vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf)
+        then
+            local buf_filetype = vim.api.nvim_buf_get_option(buf, "filetype")
+
+            if buf_filetype == filetype then
+                vim.api.nvim_buf_delete(buf, { force = true })
+            end
+        end
+    end
+end
+
+-- Create an autocommand to close "dashboard" buffers when a "dbui" buffer is opened
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { "dbui" },
+    callback = function()
+        close_buffers_by_filetype("dashboard")
+    end,
+})
