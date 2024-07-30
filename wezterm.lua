@@ -33,6 +33,7 @@ return {
 	line_height = 1.0,
 	adjust_window_size_when_changing_font_size = false,
 	window_decorations = "RESIZE",
+	-- window_background_opacity = 0.97,
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = scheme_for_appearance(get_appearance()),
 	window_padding = { left = padding, right = padding, top = padding, bottom = padding },

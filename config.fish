@@ -30,7 +30,7 @@ function ct
     cd ~/code/nmbr/api-core
     set -x NOVA_USERNAME ""
     set -x NOVA_LICENSE_KEY ""
-    docker-compose exec payroll-api bash
+    docker compose exec payroll-api bash
 end
 
 set -g fish_greeting
