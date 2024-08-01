@@ -22,6 +22,7 @@ return {
             php = { "cspell" },
             scss = { "cspell" },
             sh = { "shellcheck", "cspell" },
+            template = { "djlint" },
             terraform = { "tflint", "trivy", "cspell" },
             typescript = { "cspell" },
             typescriptreact = { "cspell" },

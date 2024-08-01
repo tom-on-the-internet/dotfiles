@@ -7,7 +7,6 @@ linters:
     - dupl
     - dupword
     - err113
-    - exhaustivestruct
     - exhaustruct
     - forbidigo
     - gci

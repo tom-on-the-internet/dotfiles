@@ -30,8 +30,20 @@ return {
                 stylelint_lsp = function()
                     require("lspconfig").stylelint_lsp.setup({})
                 end,
-                elp = function()
-                    require("lspconfig").emmet_language_server.setup({})
+                emmet_language_server = function()
+                    require("lspconfig").emmet_language_server.setup({
+                        filetypes = {
+                            "css",
+                            "html",
+                            "javascript",
+                            "javascriptreact",
+                            "less",
+                            "sass",
+                            "scss",
+                            "template",
+                            "typescriptreact",
+                        },
+                    })
                 end,
                 eslint = function()
                     require("lazyvim.util").lsp.on_attach(function(client)
