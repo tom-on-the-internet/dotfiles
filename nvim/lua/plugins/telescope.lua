@@ -16,5 +16,12 @@ return {
                 end,
             },
         },
+        opts = {
+            defaults = {
+                preview = {
+                    filesize_limit = 0.1, -- MB
+                },
+            },
+        },
     },
 }

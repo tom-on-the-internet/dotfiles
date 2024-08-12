@@ -13,10 +13,12 @@ defaults write com.apple.dock "expose-group-apps" -bool "true" && killall Dock #
 ## Fisher
 
 ```sh
-h-matsuo/fish-color-scheme-switcher
 jethrokuan/z
 jorgebucaran/fisher
-lewisacidic/fish-git-abbr
+# lewisacidic/fish-git-abbr
 patrickf1/fzf.fish
 rstacruz/fish-npm-global
+vitallium/tokyonight-fish
 ```
+
+fish_config theme save "TokyoNight Moon"

@@ -1,39 +1,3 @@
-# Nightfox Color Palette
-# Style: carbonfox
-# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/carbonfox/carbonfox.fish
-set -l foreground f2f4f8
-set -l selection 2a2a2a
-set -l comment 6e6f70
-set -l red ee5396
-set -l orange 3ddbd9
-set -l yellow 08bdba
-set -l green 25be6a
-set -l purple be95ff
-set -l cyan 33b1ff
-set -l pink ff7eb6
-
-# Syntax Highlighting Colors
-set -g fish_color_normal $foreground
-set -g fish_color_command $cyan
-set -g fish_color_keyword $pink
-set -g fish_color_quote $yellow
-set -g fish_color_redirection $foreground
-set -g fish_color_end $orange
-set -g fish_color_error $red
-set -g fish_color_param $purple
-set -g fish_color_comment $comment
-set -g fish_color_selection --background=$selection
-set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $green
-set -g fish_color_escape $pink
-set -g fish_color_autosuggestion $comment
-
-# Completion Pager Colors
-set -g fish_pager_color_progress $comment
-set -g fish_pager_color_prefix $cyan
-set -g fish_pager_color_completion $foreground
-set -g fish_pager_color_description $comment
-
 fish_add_path -g /opt/homebrew/bin/
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.npm-packages/bin
@@ -53,6 +17,40 @@ alias tf='terraform'
 alias tree='eza --tree --color never'
 alias ll='eza -al --group-directories-first --icons --color always'
 alias ls='eza --group-directories-first --icons --color always'
+alias zz='exit'
+
+abbr -a -- gbl 'git blame -b -w'
+abbr -a -- gcount 'git shortlog -sn'
+abbr -a -- gd 'git diff'
+abbr -a -- gdm 'git diff origin/(git_main_branch)'
+abbr -a -- gdct 'git describe --tags (git rev-list --tags --max-count=1)'
+abbr -a -- gf 'git fetch'
+abbr -a -- gfa 'git fetch --all --prune'
+abbr -a -- gfo 'git fetch origin'
+abbr -a -- gignore 'git update-index --assume-unchanged'
+abbr -a -- gignored 'git ls-files -v | grep "^[[:lower:]]"'
+abbr -a -- gk 'gitk --all --branches &!'
+abbr -a -- gke 'gitk --all (git log -g --pretty=%h) &!'
+abbr -a -- gl 'git log'
+abbr -a -- gls 'git log --stat'
+abbr -a -- glsp 'git log --stat -p'
+abbr -a -- glg 'git log --graph'
+abbr -a -- glgda 'git log --graph --decorate --all'
+abbr -a -- glgm 'git log --graph --max-count=10'
+abbr -a -- glo 'git log --oneline --decorate'
+abbr -a -- glog 'git log --oneline --decorate --graph'
+abbr -a -- gloga 'git log --oneline --decorate --graph --all'
+abbr -a -- gp 'git push'
+abbr -a -- gpf 'git push --force-with-lease'
+abbr -a -- gpl 'git pull'
+abbr -a -- grb 'git pull; git rebase -i origin/(git_main_branch)'
+abbr -a -- gs 'git status -sb'
+abbr -a -- gshow 'git show'
+abbr -a -- gshowps 'git show --pretty=short --show-signature'
+abbr -a -- gsw 'git switch'
+abbr -a -- gswc 'git switch -c'
+abbr -a -- gswm 'git switch (git_main_branch)'
+abbr -a -- gwch 'git whatchanged -p --abbrev-commit --pretty=medium'
 
 function e -d "Open Neovim"
     if $IS_DARK_MODE ="true"
@@ -67,6 +65,33 @@ function ct
     set -x NOVA_USERNAME ""
     set -x NOVA_LICENSE_KEY ""
     docker compose exec payroll-api bash
+end
+
+function git
+    if test "$argv[1]" = checkout
+        echo "Tom! Don't use checkout!" >&2
+        return 1
+    else
+        command git $argv
+    end
+end
+
+function wip
+    git add .
+    git commit -m "wip on $(date)"
+    git push
+end
+
+function git_main_branch -d 'Detect name of main branch of current git repository'
+    # heuristic to return the name of the main branch
+    command git rev-parse --git-dir &>/dev/null || return
+    for ref in refs/{heads,remotes/{origin,upstream}}/{main,master,trunk}
+        if command git show-ref -q --verify $ref
+            echo (string split -r -m1 -f2 / $ref)
+            return
+        end
+    end
+    echo main
 end
 
 set -g fish_greeting
