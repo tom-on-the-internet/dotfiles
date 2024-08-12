@@ -3,7 +3,7 @@
 require("conform.formatters.shfmt").args = { "-i", "2", "-sr", "-s", "-ci" }
 
 local formatters = {
-    ["php"] = { "prettier" },
+    ["php"] = { "pint", "prettier" },
     ["template"] = { "djlint" },
     ["sql"] = { "sqlfluff" },
     ["mysql"] = { "sqlfluff" },
