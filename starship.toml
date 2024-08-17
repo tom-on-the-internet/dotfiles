@@ -2,11 +2,6 @@
 
 command_timeout = 2000
 
-# [metadata]
-# name = "carbonfox"
-# author = "wjohnsto"
-# origin_url = "https://github.com/EdenEast/nightfox.nvim"
-
 format = """
 [░▒▓](#a3aed2)\
 [  ](bg:#a3aed2 fg:#090c0c)\
@@ -23,11 +18,6 @@ $php\
 [](fg:#212736 bg:#1d2230)\
 [ ](fg:#1d2230)\
 \n$character"""
-
-# [time]
-# disabled=false
-# format = '[\[ $time \]]($style) '
-# time_format = '%T'
 
 [directory]
 style = "fg:#e3e5e5 bg:#769ff0"

@@ -9,6 +9,7 @@ alias cat='bat'
 alias cp='cp -riv'
 alias curl='curlie'
 alias dc='docker compose'
+alias e='nvim'
 alias ec='nvim --clean'
 alias mkdir='mkdir -vp'
 alias mv='mv -iv'
@@ -52,13 +53,6 @@ abbr -a -- gswc 'git switch -c'
 abbr -a -- gswm 'git switch (git_main_branch)'
 abbr -a -- gwch 'git whatchanged -p --abbrev-commit --pretty=medium'
 
-function e -d "Open Neovim"
-    if $IS_DARK_MODE ="true"
-        nvim --cmd "set background=dark" $argv
-    else
-        nvim --cmd "set background=light" $argv
-    end
-end
 
 function ct
     cd ~/code/nmbr/api-core
