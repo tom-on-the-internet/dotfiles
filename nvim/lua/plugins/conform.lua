@@ -5,7 +5,8 @@ require("conform.formatters.shfmt").args = { "-i", "2", "-sr", "-s", "-ci" }
 local formatters = {
     ["php"] = { "pint", "prettier" },
     ["template"] = { "djlint" },
-    ["sql"] = { "sqlfluff" },
+    ["sql"] = { "sqlfluff", "trim_whitespace" },
+    ["sqlite"] = { "sqlfluff" },
     ["mysql"] = { "sqlfluff" },
     ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
     -- Use the "_" filetype to run formatters on filetypes that don't
