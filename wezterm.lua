@@ -11,8 +11,8 @@ return {
     -- line_height = 1.0,
     adjust_window_size_when_changing_font_size = false,
     window_decorations = "RESIZE",
-    window_background_opacity = 0.95,
-    macos_window_background_blur = 20,
+    window_background_opacity = 0.90,
+    macos_window_background_blur = 40,
     window_close_confirmation = "NeverPrompt",
     color_scheme = "Tokyo Night Moon",
     window_padding = {
