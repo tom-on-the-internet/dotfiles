@@ -18,14 +18,14 @@ alias tf='terraform'
 alias tree='eza --tree --color never'
 alias ll='eza -al --group-directories-first --icons --color always'
 alias ls='eza --group-directories-first --icons --color always'
-alias zz='exit'
 alias prs='gh pr list --state open --author "@me" --json title,url,headRepository --jq \'.[] | "\(.headRepository.name): \(.title) \(.url)"\''
+alias zz='exit'
 
 abbr -a -- gbl 'git blame -b -w'
 abbr -a -- gcount 'git shortlog -sn'
 abbr -a -- gd 'git diff'
-abbr -a -- gdct 'git describe --tags (git rev-list --tags --max-count=1)'
 abbr -a -- gdm 'git diff origin/(git_main_branch)'
+abbr -a -- gdct 'git describe --tags (git rev-list --tags --max-count=1)'
 abbr -a -- gf 'git fetch'
 abbr -a -- gfa 'git fetch --all --prune'
 abbr -a -- gfo 'git fetch origin'
@@ -34,25 +34,26 @@ abbr -a -- gignored 'git ls-files -v | grep "^[[:lower:]]"'
 abbr -a -- gk 'gitk --all --branches &!'
 abbr -a -- gke 'gitk --all (git log -g --pretty=%h) &!'
 abbr -a -- gl 'git log'
+abbr -a -- gls 'git log --stat'
+abbr -a -- glsp 'git log --stat -p'
 abbr -a -- glg 'git log --graph'
 abbr -a -- glgda 'git log --graph --decorate --all'
 abbr -a -- glgm 'git log --graph --max-count=10'
 abbr -a -- glo 'git log --oneline --decorate'
 abbr -a -- glog 'git log --oneline --decorate --graph'
 abbr -a -- gloga 'git log --oneline --decorate --graph --all'
-abbr -a -- gls 'git log --stat'
-abbr -a -- glsp 'git log --stat -p'
 abbr -a -- gp 'git push'
 abbr -a -- gpf 'git push --force-with-lease'
 abbr -a -- gpl 'git pull'
-abbr -a -- gpsu 'git push --set-upstream origin (git_current_branch)'
 abbr -a -- grb 'git pull; git rebase -i origin/(git_main_branch)'
 abbr -a -- gs 'git status -sb'
 abbr -a -- gshow 'git show'
 abbr -a -- gshowps 'git show --pretty=short --show-signature'
 abbr -a -- gsw 'git switch'
+abbr -a -- gswc 'git switch -c'
 abbr -a -- gswm 'git switch (git_main_branch)'
 abbr -a -- gwch 'git whatchanged -p --abbrev-commit --pretty=medium'
+
 
 
 function ct
@@ -97,8 +98,8 @@ function starship_transient_rprompt_func
     starship module time
 end
 starship init fish | source
-enable_transience
 
+enable_transience
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

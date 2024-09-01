@@ -15,10 +15,9 @@ defaults write com.apple.dock "expose-group-apps" -bool "true" && killall Dock #
 ```sh
 jethrokuan/z
 jorgebucaran/fisher
-# lewisacidic/fish-git-abbr
 patrickf1/fzf.fish
 rstacruz/fish-npm-global
-vitallium/tokyonight-fish
+catppuccin/fish
 ```
 
-fish_config theme save "TokyoNight Moon"
+fish_config theme save "Catppuccin Macchiato"
