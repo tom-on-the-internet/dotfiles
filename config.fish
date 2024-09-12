@@ -53,14 +53,18 @@ abbr -a -- gsw 'git switch'
 abbr -a -- gswc 'git switch -c'
 abbr -a -- gswm 'git switch (git_main_branch)'
 abbr -a -- gwch 'git whatchanged -p --abbrev-commit --pretty=medium'
-
-
+abbr -a -- gwip 'git add . && git commit -m wip'
 
 function ct
     cd ~/code/nmbr/api-core
     set -x NOVA_USERNAME ""
     set -x NOVA_LICENSE_KEY ""
     docker compose exec payroll-api bash
+end
+
+function nct
+    nmbuddy
+    ct
 end
 
 function git

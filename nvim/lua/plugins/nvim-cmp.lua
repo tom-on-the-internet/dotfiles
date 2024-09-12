@@ -22,7 +22,7 @@ return {
 
             table.insert(opts.sources, {
                 name = "rg", -- rip grep project
-                keyword_length = 3,
+                keyword_length = 5,
             })
         end,
     },
