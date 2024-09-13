@@ -4,16 +4,6 @@ local padding = 40
 return {
 	font_size = 22,
 	font = wezterm.font("IBM Plex Mono"),
-	-- font_rules = {
-	-- 	{
-	-- 		intensity = "Normal",
-	-- 		italic = true,
-	-- 		font = wezterm.font({
-	-- 			family = "Monaspace Radon",
-	-- 			italic = true,
-	-- 		}),
-	-- 	},
-	-- },
 
 	-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, --disable ligatures
 	scrollback_lines = 10000,

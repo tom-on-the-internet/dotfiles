@@ -82,6 +82,10 @@ function wip
     git push
 end
 
+function todos
+    git diff origin/main | rg '^+.*TODO:'
+end
+
 function git_main_branch -d 'Detect name of main branch of current git repository'
     # heuristic to return the name of the main branch
     command git rev-parse --git-dir &>/dev/null || return
