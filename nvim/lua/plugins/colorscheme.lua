@@ -8,6 +8,15 @@ return {
             require("catppuccin").setup({
                 flavour = "frappe", -- latte, frappe, macchiato, mocha
                 transparent_background = true, -- disables setting the background color.
+                integrations = {
+                    aerial = true,
+                    grug_far = true,
+                    mason = true,
+                    noice = true,
+                    notify = true,
+                    lsp_trouble = true,
+                    dadbod_ui = true,
+                },
             })
             vim.cmd.colorscheme("catppuccin")
         end,
