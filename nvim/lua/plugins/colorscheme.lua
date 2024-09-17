@@ -21,4 +21,12 @@ return {
             vim.cmd.colorscheme("catppuccin")
         end,
     },
+    {
+        "folke/noice.nvim",
+        opts = {
+            presets = {
+                lsp_doc_border = true,
+            },
+        },
+    },
 }

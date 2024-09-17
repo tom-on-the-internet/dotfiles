@@ -24,6 +24,15 @@ return {
                 name = "rg", -- rip grep project
                 keyword_length = 5,
             })
+
+            opts.window = {
+                completion = {
+                    border = "rounded",
+                },
+                documentation = {
+                    border = "rounded",
+                },
+            }
         end,
     },
 }
