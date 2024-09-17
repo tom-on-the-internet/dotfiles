@@ -1,7 +1,6 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
---
 
 local function augroup(name)
     return vim.api.nvim_create_augroup("tom_" .. name, { clear = true })
@@ -43,5 +42,15 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = { "dbui" },
     callback = function()
         close_buffers_by_filetype("dashboard")
+    end,
+})
+
+-- Quickfix list preview
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "qf",
+    callback = function(event)
+        local opts = { buffer = event.buf, silent = true }
+        vim.keymap.set("n", "<C-n>", "<cmd>cn | wincmd p<CR>", opts)
+        vim.keymap.set("n", "<C-p>", "<cmd>cN | wincmd p<CR>", opts)
     end,
 })
