@@ -25,6 +25,7 @@ abbr -a -- gbl 'git blame -b -w'
 abbr -a -- gcount 'git shortlog -sn'
 abbr -a -- gd 'git diff'
 abbr -a -- gdm 'git diff origin/(git_main_branch)'
+abbr -a -- gdmn 'git diff origin/(git_main_branch) --name-status'
 abbr -a -- gdct 'git describe --tags (git rev-list --tags --max-count=1)'
 abbr -a -- gf 'git fetch'
 abbr -a -- gfa 'git fetch --all --prune'
@@ -102,12 +103,12 @@ set -g fish_greeting
 set -gx EDITOR nvim
 set -gx TERM wezterm
 
-function starship_transient_rprompt_func
-    starship module time
-end
-starship init fish | source
+#function starship_transient_rprompt_func
+#    starship module time
+#end
+#starship init fish | source
 
-enable_transience
+#enable_transience
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
