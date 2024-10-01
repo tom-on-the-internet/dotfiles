@@ -4,6 +4,11 @@ return {
         ---@class PluginLspOpts
         opts = {
             servers = {
+                -- temporarily disable ts_ls
+                -- lazy will soon do this for me
+                ts_ls = {
+                    enabled = false,
+                },
                 cssls = {},
                 jsonls = {},
                 html = {},
