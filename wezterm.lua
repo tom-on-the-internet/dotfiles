@@ -2,20 +2,29 @@ local wezterm = require("wezterm")
 local padding = 40
 
 return {
+	font = wezterm.font({ family = "Departure Mono" }),
+	font_rules = {
+		{
+			intensity = "Normal",
+			italic = true,
+			font = wezterm.font({
+				family = "VictorMono Nerd Font",
+				italic = true,
+			}),
+		},
+	},
+	color_scheme = "carbonfox",
 	font_size = 22,
-	font = wezterm.font("IBM Plex Mono"),
+	line_height = 1.2,
+	window_background_opacity = 0.95,
+	macos_window_background_blur = 25,
 
-	-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, --disable ligatures
 	scrollback_lines = 10000,
 	enable_tab_bar = false,
 	audible_bell = "Disabled",
-	line_height = 1.1,
 	adjust_window_size_when_changing_font_size = false,
 	window_decorations = "RESIZE",
-	-- window_background_opacity = 0.94,
-	macos_window_background_blur = 20,
 	window_close_confirmation = "NeverPrompt",
-	color_scheme = "Catppuccin Frappe",
 
 	window_padding = {
 		left = padding,

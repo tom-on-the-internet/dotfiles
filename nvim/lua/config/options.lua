@@ -11,3 +11,4 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 4
 -- vim.g.db_ui_force_echo_notification = true
 vim.g.db_ui_use_nvim_notify = false
+vim.g.transparent_background = true
