@@ -17,7 +17,6 @@ jethrokuan/z
 jorgebucaran/fisher
 patrickf1/fzf.fish
 rstacruz/fish-npm-global
-catppuccin/fish
 IlanCosman/tide@v6
 
 tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time=No --classic_prompt_separators=Round --powerline_prompt_heads=Round --powerline_prompt_tails=Round --powerline_prompt_style='Two lines, character' --prompt_connection=Disconnected --powerline_right_prompt_frame=No --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
