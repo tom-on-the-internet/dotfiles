@@ -9,6 +9,7 @@ return {
                 ts_ls = {
                     enabled = false,
                 },
+                denols = {},
                 cssls = {},
                 jsonls = {},
                 html = {},

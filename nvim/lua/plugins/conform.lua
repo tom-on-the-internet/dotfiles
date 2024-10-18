@@ -4,7 +4,6 @@ require("conform.formatters.shfmt").args = { "-i", "2", "-sr", "-s", "-ci" }
 
 local formatters = {
     ["php"] = { "pint", "prettier" },
-    -- ["php"] = { "prettier" },
     ["template"] = { "djlint" },
     ["sql"] = { "sqlfluff", "trim_whitespace" },
     ["sqlite"] = { "sqlfluff" },
@@ -25,14 +24,24 @@ return {
             opts.formatters_by_ft[k] = v
         end
 
-        -- all of this is to ensure prettier runs on php files
         opts.formatters = opts.formatters or {}
         if opts.formatters.prettier and opts.formatters.prettier.condition then
             local condition = opts.formatters.prettier.condition
             opts.formatters.prettier.condition = function(_, ctx)
+                -- ensure prettier runs on php files
                 local ft = vim.bo[ctx.buf].filetype --[[@as string]]
                 if ft == "php" then
                     return true
+                end
+
+                -- ensure prettier does not run in deno
+                if
+                    require("lspconfig").util.root_pattern(
+                        "deno.json",
+                        "deno.jsonc"
+                    )(vim.fn.getcwd())
+                then
+                    return false
                 end
                 return condition(_, ctx)
             end
