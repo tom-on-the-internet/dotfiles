@@ -31,6 +31,7 @@ return {
                     },
                 },
                 stylelint_lsp = {},
+                zls = {},
             },
             setup = {
                 stylelint_lsp = function()
