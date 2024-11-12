@@ -1,6 +1,6 @@
 return {
-    "johmsalas/text-case.nvim",
-    config = function()
-        require("textcase").setup({})
-    end,
+  "johmsalas/text-case.nvim",
+  config = function()
+    require("textcase").setup({})
+  end,
 }

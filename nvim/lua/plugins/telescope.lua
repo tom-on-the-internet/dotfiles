@@ -1,27 +1,13 @@
 return {
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            {
-                "ANGkeith/telescope-terraform-doc.nvim",
-                config = function()
-                    require("telescope").load_extension("terraform_doc")
-                end,
-            },
-            {
-                "isak102/telescope-git-file-history.nvim",
-                dependencies = { "tpope/vim-fugitive" },
-                config = function()
-                    require("telescope").load_extension("git_file_history")
-                end,
-            },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        preview = {
+          -- do not search huge files
+          filesize_limit = 0.1, -- MB
         },
-        opts = {
-            defaults = {
-                preview = {
-                    filesize_limit = 0.1, -- MB
-                },
-            },
-        },
+      },
     },
+  },
 }
