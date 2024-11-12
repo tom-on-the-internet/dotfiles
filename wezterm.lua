@@ -1,31 +1,18 @@
 local wezterm = require("wezterm")
 local padding = 40
-local opacity = 1
-
-wezterm.on("toggle-opacity", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	if overrides.window_background_opacity == 1 then
-		overrides.window_background_opacity = opacity
-	else
-		overrides.window_background_opacity = 1
-	end
-	window:set_config_overrides(overrides)
-end)
 
 return {
-	font = wezterm.font({ family = "IBM Plex Mono" }),
-	font_size = 22,
-	line_height = 1.2,
-	window_background_opacity = opacity,
-	macos_window_background_blur = 5,
-	color_scheme = "Catppuccin Frappe",
-
-	scrollback_lines = 10000,
-	enable_tab_bar = false,
-	audible_bell = "Disabled",
 	adjust_window_size_when_changing_font_size = false,
-	window_decorations = "RESIZE",
+	audible_bell = "Disabled",
+	color_scheme = "Tokyo Night",
+	enable_tab_bar = false,
+	-- font = wezterm.font({ family = "IBM Plex Mono" }),
+	-- window_background_opacity = 0.95,
+	font_size = 22,
+	line_height = 1.3,
+	scrollback_lines = 10000,
 	window_close_confirmation = "NeverPrompt",
+	window_decorations = "RESIZE",
 
 	window_padding = {
 		left = padding,

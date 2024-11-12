@@ -21,6 +21,7 @@ alias ls='eza --group-directories-first --icons'
 alias prs='gh pr list --state open --author "@me" --json title,url,headRepository --jq \'.[] | "\(.headRepository.name): \(.title) \(.url)"\''
 alias zz='exit'
 
+abbr -a -- art 'php artisan'
 abbr -a -- gbl 'git blame -b -w'
 abbr -a -- gd 'git diff'
 abbr -a -- gdm 'git diff origin/(git_main_branch)'
@@ -76,6 +77,7 @@ end
 set -g fish_greeting
 set -gx EDITOR nvim
 set -gx TERM wezterm
+set -gx JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION true
 #set -g fish_autosuggestion_enabled 0
 
 
