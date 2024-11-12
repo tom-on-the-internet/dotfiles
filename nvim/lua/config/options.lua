@@ -4,3 +4,5 @@
 vim.opt.relativenumber = false
 vim.opt.swapfile = false
 vim.opt.spell = false -- I use cspell
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
