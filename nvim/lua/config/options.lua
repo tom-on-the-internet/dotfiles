@@ -6,3 +6,4 @@ vim.opt.swapfile = false
 vim.opt.spell = false -- I use cspell
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.g.lazyvim_php_lsp = "intelephense"
