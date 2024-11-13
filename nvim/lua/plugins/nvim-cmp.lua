@@ -37,5 +37,4 @@ return {
       }
     end,
   },
-  { "lukas-reineke/cmp-rg", lazy = true },
 }
