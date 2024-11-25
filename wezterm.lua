@@ -7,7 +7,7 @@ return {
 	color_scheme = "Catppuccin Frappe",
 	enable_tab_bar = false,
 	font = wezterm.font({ family = "IBM Plex Mono" }),
-	font_size = 22,
+	font_size = 18,
 	line_height = 1.2,
 	scrollback_lines = 10000,
 	window_close_confirmation = "NeverPrompt",
