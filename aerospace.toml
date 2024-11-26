@@ -55,11 +55,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 25
-inner.vertical =   25
-outer.left =       25
-outer.bottom =     25
-outer.top =        25
-outer.right =      25
+inner.vertical = 25
+outer.left = 25
+outer.bottom = 25
+outer.top = 25
+outer.right = 25
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -84,6 +84,7 @@ outer.right =      25
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+alt-g = 'exec-and-forget open -na wezterm --args start --always-new-process'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -142,7 +143,10 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 #s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+    'layout floating tiling',
+    'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']

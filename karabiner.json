@@ -1,33 +1,36 @@
 {
-    "global": { "show_in_menu_bar": false },
+    "global": {
+        "show_in_menu_bar": false
+    },
     "profiles": [
         {
             "complex_modifications": {
-                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+                "parameters": {
+                    "basic.to_if_held_down_threshold_milliseconds": 100
+                },
                 "rules": [
-                    {
-                        "description": "open terminal",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "return_or_enter",
-                                    "modifiers": { "mandatory": ["left_gui", "shift"] }
-                                },
-                                "to": [{ "shell_command": "open -na wezterm --args start --always-new-process" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
                     {
                         "description": "Caps is escape when tapped and control when held",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "key_code": "left_control" }],
-                                "to_if_alone": [{ "key_code": "escape" }],
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -43,12 +46,24 @@
                     },
                     "simple_modifications": [
                         {
-                            "from": { "key_code": "left_command" },
-                            "to": [{ "key_code": "left_option" }]
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_option"
+                                }
+                            ]
                         },
                         {
-                            "from": { "key_code": "left_option" },
-                            "to": [{ "key_code": "left_command" }]
+                            "from": {
+                                "key_code": "left_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
+                                }
+                            ]
                         }
                     ]
                 }
