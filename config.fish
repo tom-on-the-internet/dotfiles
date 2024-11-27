@@ -62,6 +62,11 @@ function git
     end
 end
 
+# go to window
+function ff
+    aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+end
+
 function git_main_branch -d 'Detect name of main branch of current git repository'
     # heuristic to return the name of the main branch
     command git rev-parse --git-dir &>/dev/null || return
