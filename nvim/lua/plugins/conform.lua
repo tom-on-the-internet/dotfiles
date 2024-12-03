@@ -4,6 +4,7 @@ require("conform.formatters.shfmt").args = { "-i", "2", "-sr", "-s", "-ci" }
 
 local formatters = {
   ["php"] = { "pint", "prettier" },
+  -- ["nu"] = { "nufmt" },
   ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
   -- Use the "_" filetype to run formatters on filetypes that don't
   -- have other formatters configured.
