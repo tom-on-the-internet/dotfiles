@@ -23,6 +23,7 @@ map(
   ":let @+=expand('%') .. ':' .. line('.')<cr>",
   { desc = "Copy current file name and line number to clipboard" }
 )
+map("n", "<CR>", "ciw")
 
 map("n", "<leader>Y", function()
   vim.cmd("let @+ = expand('%')")
