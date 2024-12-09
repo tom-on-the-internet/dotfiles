@@ -4,7 +4,7 @@ local padding = 40
 return {
 	adjust_window_size_when_changing_font_size = false,
 	audible_bell = "Disabled",
-	color_scheme = "Catppuccin Frappe",
+	color_scheme = "Catppuccin Mocha",
 	enable_tab_bar = false,
 	font = wezterm.font({ family = "IBM Plex Mono" }),
 	font_size = 18,
