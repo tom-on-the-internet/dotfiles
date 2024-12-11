@@ -4,9 +4,11 @@ local padding = 40
 return {
 	adjust_window_size_when_changing_font_size = false,
 	audible_bell = "Disabled",
-	color_scheme = "Catppuccin Mocha",
+	-- color_scheme = "Catppuccin Mocha",
+	color_scheme = "Night Owl (Gogh)",
 	enable_tab_bar = false,
-	font = wezterm.font({ family = "IBM Plex Mono" }),
+	-- font = wezterm.font({ family = "IBM Plex Mono" }),
+	font = wezterm.font({ family = "Berkeley Mono" }),
 	font_size = 18,
 	line_height = 1.2,
 	scrollback_lines = 10000,

@@ -38,6 +38,9 @@ return {
 ]],
         },
       },
+      words = {
+        enabled = false,
+      },
     },
   },
 }
