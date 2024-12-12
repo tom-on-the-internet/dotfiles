@@ -4,6 +4,7 @@ fish_add_path -g ~/.npm-packages/bin
 fish_add_path -g ~/.node_modules/bin
 fish_add_path -g ~/go/bin
 fish_add_path -g ~/.gem/ruby/3.3.0/bin
+fish_add_path /opt/homebrew/opt/mysql-client@8.4/bin
 
 alias cat='bat'
 alias cp='cp -riv'
@@ -91,3 +92,4 @@ if status is-interactive
 end
 
 alias assume="source (brew --prefix)/bin/assume.fish"
+starship init fish | source
