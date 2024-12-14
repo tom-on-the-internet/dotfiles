@@ -38,9 +38,9 @@ return {
 ]],
         },
       },
-      words = {
-        enabled = false,
-      },
+      words = { enabled = false },
+      indent = { enabled = false },
+      scroll = { enabled = false },
     },
   },
 }
