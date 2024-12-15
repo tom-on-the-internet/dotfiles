@@ -29,7 +29,6 @@ return {
         if ft == "php" then
           return true
         end
-
         -- ensure prettier does not run in deno
         if require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
           return false
