@@ -14,6 +14,7 @@ return {
 	scrollback_lines = 10000,
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
+	max_fps = 120,
 
 	window_padding = {
 		left = padding,
