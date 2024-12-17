@@ -7,6 +7,9 @@ return {
         glob_flag = "--iglob", -- for case sensitive globs use '--glob'
         glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
       },
+      oldfiles = {
+        include_current_session = true, -- include bufs from current session
+      },
     },
   },
 }

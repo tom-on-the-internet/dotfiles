@@ -8,3 +8,4 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.cursorline = false
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.ai_cmp = false
