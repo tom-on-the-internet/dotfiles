@@ -4,14 +4,14 @@ cursor-style-blink = false
 font-family = Berkeley Mono
 font-size = 18
 font-thicken = false
-keybind = global:cmd+grave_accent=toggle_quick_terminal
-macos-titlebar-style = hidden
-quit-after-last-window-closed = true
-shell-integration-features = no-cursor
-theme = Kanagawa Dragon
-window-padding-x = 20
-window-padding-y = 20
+# keybind = global:cmd+grave_accent=toggle_quick_terminal
 macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = 311d12
 macos-icon-screen-color = 150606
+macos-titlebar-style = hidden
+quit-after-last-window-closed = true
+shell-integration-features = no-cursor
+theme = Kanagawa Wave
+window-padding-x = 20
+window-padding-y = 20
