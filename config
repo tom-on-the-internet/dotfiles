@@ -1,17 +1,11 @@
-adjust-cell-height = 20%
+#adjust-cell-height = 20%
 confirm-close-surface = false
 cursor-style-blink = false
-font-family = Berkeley Mono
+font-family = IBM Plex Mono
 font-size = 18
-font-thicken = false
-# keybind = global:cmd+grave_accent=toggle_quick_terminal
-macos-icon = custom-style
-macos-icon-frame = plastic
-macos-icon-ghost-color = 311d12
-macos-icon-screen-color = 150606
 macos-titlebar-style = hidden
 quit-after-last-window-closed = true
 shell-integration-features = no-cursor
-theme = Kanagawa Wave
-window-padding-x = 20
-window-padding-y = 20
+theme = catppuccin-frappe
+window-padding-x = 30
+window-padding-y = 30
