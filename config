@@ -1,6 +1,8 @@
+#background-blur-radius = 20
+#background-opacity =0.95
 confirm-close-surface = false
-cursor-style-blink = false
 cursor-color= #81c8be
+cursor-style-blink = false
 font-family = IBM Plex Mono
 font-size = 18
 macos-option-as-alt = true
@@ -10,4 +12,3 @@ shell-integration-features = no-cursor
 theme = catppuccin-frappe
 window-padding-x = 30
 window-padding-y = 30
-
