@@ -12,7 +12,7 @@ return {
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        transparent_background = false,
+        transparent_background = true,
         integrations = {
           aerial = true,
           grug_far = true,

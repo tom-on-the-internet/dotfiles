@@ -7,16 +7,6 @@
 local map = vim.keymap.set
 
 map("n", "<leader>y", "@q", { desc = "Run q macro" })
-map("n", "<leader>s?", function()
-  require("telescope.builtin").live_grep({
-    search = "",
-    additional_args = { "--hidden", "--no-ignore" },
-    prompt_title = "Search (hidden and ignored)",
-  })
-end, { desc = "Grep including hidden and ignored" })
-map("n", "<leader>fa", function()
-  require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
-end, { desc = "Find files including hidden and ignored" })
 map(
   "n",
   "<leader>fl",
