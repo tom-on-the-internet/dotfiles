@@ -36,7 +36,7 @@ return {
             ---@module "blink-ripgrep"
             ---@type blink-ripgrep.Options
             opts = {
-              prefix_min_len = 8,
+              prefix_min_len = 5,
               context_size = 5,
               max_filesize = "100K",
             },
