@@ -1,5 +1,5 @@
-#background-blur-radius = 20
-#background-opacity =0.95
+background-blur-radius = 20
+background-opacity = 1.00
 confirm-close-surface = false
 cursor-color= #81c8be
 cursor-style-blink = false
