@@ -20,11 +20,11 @@ return {
           noice = true,
           notify = true,
           lsp_trouble = true,
-          dadbod_ui = true,
         },
       })
     end,
   },
+  { "rebelot/kanagawa.nvim" },
   {
     "olivercederborg/poimandres.nvim",
     lazy = false,
