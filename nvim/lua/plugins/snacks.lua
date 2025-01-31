@@ -5,7 +5,6 @@ return {
       dashboard = {
         sections = {
           { section = "header" },
-          -- { section = "terminal", cmd = "~/code/matrix-digital-rain/tom.js; sleep .3" },
           { section = "keys", padding = 0, align = "center" },
         },
         preset = {
