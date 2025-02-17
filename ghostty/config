@@ -1,9 +1,8 @@
-background-blur-radius = 10
-background-opacity = 0.95
+background-blur-radius = 20
 confirm-close-surface = false
 cursor-color= #81c8be
 cursor-style-blink = false
-adjust-cell-height = 5%
+adjust-cell-height = 4%
 font-family = Berkeley Mono
 font-size = 18
 macos-option-as-alt = true
