@@ -1,0 +1,17 @@
+background-blur-radius = 10
+background-opacity = 0.95
+confirm-close-surface = false
+cursor-color= #81c8be
+cursor-style-blink = false
+adjust-cell-height = 5%
+font-family = Berkeley Mono
+font-size = 18
+macos-option-as-alt = true
+macos-titlebar-style = hidden
+quit-after-last-window-closed = true
+shell-integration-features = no-cursor
+theme = tokyonight_moon
+window-padding-x = 30
+window-padding-y = 30
+
+#custom-shader=shaders/retro-terminal.glsl

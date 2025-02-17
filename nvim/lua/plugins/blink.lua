@@ -27,7 +27,6 @@ return {
       sources = {
         compat = {},
         default = { "lsp", "path", "snippets", "buffer", "ripgrep" },
-        cmdline = {},
         providers = {
           ripgrep = {
             module = "blink-ripgrep",
