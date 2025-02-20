@@ -18,9 +18,7 @@ map("n", "<leader>Y", function()
   vim.cmd("let @+ = expand('%')")
 end, { desc = "Copy relative file path to clipboard" })
 
-map("n", "<space><space>", function()
-  Snacks.picker.smart()
-end, { desc = "Find file Smart 󱨠" })
+map("n", "<leader>gb", "<CMD>BlameToggle<CR>", { desc = "Copy relative file path to clipboard" })
 
 local function get_visual_selection()
   vim.cmd('noau normal! "vy"')

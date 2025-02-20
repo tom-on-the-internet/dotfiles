@@ -37,9 +37,10 @@ return {
 ]],
         },
       },
-      words = { enabled = false },
-      indent = { enabled = false },
-      scroll = { enabled = false },
+      -- too slow
+      scroll = {
+        enabled = false,
+      },
     },
   },
 }
