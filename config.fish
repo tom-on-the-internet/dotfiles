@@ -83,10 +83,8 @@ end
 
 set -g fish_greeting
 set -gx EDITOR nvim
-set -gx TERM wezterm
 set -gx JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION true
 #set -g fish_autosuggestion_enabled 0
-
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
