@@ -41,6 +41,9 @@ return {
       scroll = {
         enabled = false,
       },
+      indent = {
+        enabled = false,
+      },
       picker = {
         source = "files",
         win = {
