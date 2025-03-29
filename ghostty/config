@@ -1,6 +1,6 @@
 background-blur-radius = 20
 confirm-close-surface = false
-cursor-color= #81c8be
+cursor-color= #4fd6be
 cursor-style-blink = false
 adjust-cell-height = 4%
 font-family = Berkeley Mono
@@ -9,7 +9,7 @@ macos-option-as-alt = true
 macos-titlebar-style = hidden
 quit-after-last-window-closed = true
 shell-integration-features = no-cursor
-theme = tokyonight_moon
+theme = tokyonight-storm
 window-padding-x = 30
 window-padding-y = 30
 
