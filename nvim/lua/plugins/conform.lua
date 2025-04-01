@@ -12,7 +12,7 @@ return {
       go = { "gofumpt", "golines", "goimports", "trim_whitespace" },
       -- Use the "_" filetype to run formatters on filetypes that don't
       -- have other formatters configured.
-      _ = { "trim_whitespace" },
+      ["_"] = { "trim_whitespace", lsp_format = "prefer" },
     },
     -- Customize formatters
     formatters = {
