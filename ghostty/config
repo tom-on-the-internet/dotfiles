@@ -9,8 +9,31 @@ macos-option-as-alt = true
 macos-titlebar-style = hidden
 quit-after-last-window-closed = true
 shell-integration-features = no-cursor
-theme = tokyonight-storm
+#theme = tokyonight-storm
 window-padding-x = 30
 window-padding-y = 30
 
 #custom-shader=shaders/retro-terminal.glsl
+
+#lackluster muted
+palette = 0=#202020
+palette = 1=#665050
+palette = 2=#546454
+palette = 3=#8a786a
+palette = 4=#505c70
+palette = 5=#664c5a
+palette = 6=#50585c
+palette = 7=#9ca4a3
+palette = 8=#252525
+palette = 9=#665050
+palette = 10=#546454
+palette = 11=#8a786a
+palette = 12=#505c70
+palette = 13=#664c5a
+palette = 14=#50585c
+palette = 15=#9ca4a3
+background = 101010
+foreground = deeeed
+cursor-color = deeeed
+selection-background = 7a7a7a
+selection-foreground = 0a0a0a
