@@ -2,7 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   opts = {
 
-    theme = "lackluster",
+    theme = "vscode",
     sections = {
       lualine_z = {
         function()
