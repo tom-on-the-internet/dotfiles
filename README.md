@@ -1,4 +1,4 @@
-# Dotfiles for MacOS!
+# Dotfiles for MacOS
 
 ## keys
 

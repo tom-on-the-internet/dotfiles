@@ -11,7 +11,7 @@ alias cat='bat'
 alias cp='cp -riv'
 alias curl='curlie'
 alias dc='docker compose'
-alias e='nvim'
+alias e='nvim --clean'
 alias ec='nvim --clean'
 alias mkdir='mkdir -vp'
 alias mv='mv -iv'
@@ -50,11 +50,6 @@ function ct
     docker compose exec payroll-api bash
 end
 
-function nct
-    nmbuddy
-    ct
-end
-
 function git
     if test "$argv[1]" = checkout
         echo "Tom! Don't use checkout!" >&2
@@ -62,11 +57,6 @@ function git
     else
         command git $argv
     end
-end
-
-# go to window
-function ff
-    aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
 end
 
 function git_main_branch -d 'Detect name of main branch of current git repository'
@@ -86,27 +76,6 @@ set -gx EDITOR nvim
 set -gx JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION true
 #set -g fish_autosuggestion_enabled 0
 
-# lackluster
-# set -gx fish_color_end 7a7a7a
-# set -gx fish_color_error ffaa88
-# set -gx fish_color_quote 708090
-# set -gx fish_color_param aaaaaa
-# set -gx fish_color_option aaaaaa
-# set -gx fish_color_normal CCCCCC
-# set -gx fish_color_escape 789978
-# set -gx fish_color_comment 555555
-# set -gx fish_color_command CCCCCC
-# set -gx fish_color_keyword 7a7a7a
-# set -gx fish_color_operator 7788aa
-# set -gx fish_color_redirection ffaa88
-# set -gx fish_color_autosuggestion 2a2a2a
-# set -gx fish_color_selection --background=555555
-# set -gx fish_color_search_match --background=555555
-# set -gx fish_pager_color_prefix 999999
-# set -gx fish_pager_color_progress 555555
-# set -gx fish_pager_color_completion cccccc
-# set -gx fish_pager_color_description 7a7a7a
-# set -gx fish_pager_color_selected_background --background=555555
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
