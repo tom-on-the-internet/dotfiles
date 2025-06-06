@@ -2,15 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanso",
-    },
-  },
-  {
-    "webhooked/kanso.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      colorscheme = "vscode",
+      colorscheme = "tokyonight-night",
     },
   },
   {
@@ -21,5 +13,4 @@ return {
       },
     },
   },
-  { "Mofiqul/vscode.nvim" },
 }

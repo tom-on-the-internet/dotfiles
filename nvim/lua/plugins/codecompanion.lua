@@ -1,27 +1,25 @@
--- return {
---   -- "olimorris/codecompanion.nvim",
---   -- dependencies = {
---   --   "nvim-lua/plenary.nvim",
---   --   "nvim-treesitter/nvim-treesitter",
---   --   "github/copilot.vim",
---   -- },
---   -- config = true,
---   -- opts = {
---   --   strategies = {
---   --     chat = { adapter = "copilot" },
---   --     inline = { adapter = "copilot" },
---   --   },
---   --   opts = {
---   --     log_level = "DEBUG",
---   --   },
---   -- },
--- }
 return {
-  "olimorris/codecompanion.nvim",
-  opts = {},
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    "github/copilot.vim",
+  {
+    "olimorris/codecompanion.nvim",
+    opts = {},
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "github/copilot.vim",
+    },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
+  },
+  {
+    "echasnovski/mini.diff",
+    config = function()
+      local diff = require("mini.diff")
+      diff.setup({
+        -- Disabled by default
+        source = diff.gen_source.none(),
+      })
+    end,
   },
 }
