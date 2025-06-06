@@ -34,6 +34,30 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Open Ghostty",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -na Ghostty"
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
