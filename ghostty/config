@@ -8,8 +8,13 @@ window-padding-x = 30
 window-padding-y = 30
 font-size = 18
 font-family = "IBM Plex Mono"
+#font-family = "Berkeley Mon"
 adjust-cell-height = 4%
 window-width = 195
 window-height = 60
-theme = "tokyonight_night"
+#theme = "tokyonight_night"
+theme = "carbonfox"
+background-opacity = 0.97
 
+
+keybind = shift+enter=text:\n

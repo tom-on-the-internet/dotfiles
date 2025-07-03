@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "catppuccin-macchiato",
     },
   },
   {
@@ -12,5 +12,21 @@ return {
         lsp_doc_border = true,
       },
     },
+  },
+  {
+    "catppuccin/nvim",
+    opts = {
+      transparent_background = true,
+    },
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      require("nightfox").setup({
+        options = {
+          -- transparent = true,
+        },
+      })
+    end,
   },
 }
