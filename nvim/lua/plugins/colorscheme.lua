@@ -17,6 +17,10 @@ return {
     "catppuccin/nvim",
     opts = {
       transparent_background = true,
+      styles = {
+        -- no italic comments.
+        comments = {},
+      },
     },
   },
 }
