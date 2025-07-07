@@ -6,6 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "github/copilot.vim",
+      "franco-ruggeri/codecompanion-lualine.nvim",
     },
   },
   {

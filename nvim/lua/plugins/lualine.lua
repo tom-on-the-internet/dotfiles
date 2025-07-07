@@ -3,6 +3,9 @@ return {
   opts = {
     theme = "catppuccin",
     sections = {
+      lualine_x = {
+        "codecompanion",
+      },
       lualine_z = {
         function()
           return "텀"
