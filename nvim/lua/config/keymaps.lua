@@ -125,10 +125,9 @@ map("n", "<leader>cW", add_all_unknown_words_to_dictionary, { desc = "Add all un
 map("v", "<leader>cx", add_selected_word, { desc = "Add word to cspell dictionary" })
 
 vim.g.cmp_toggle = true
-map("n", "<leader>ua", function()
-  vim.g.cmp_toggle = not vim.g.cmp_toggle
-  require("cmp").setup({ enabled = vim.g.cmp_toggle })
-  if vim.g.cmp_toggle then
+map("n", "<leader>uB", function()
+  vim.b.completion = not vim.b.completion
+  if vim.b.completion then
     vim.notify("completions are ON")
   else
     vim.notify("completions are OFF")
