@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "tokyonight-moon",
     },
   },
   {
@@ -34,5 +34,4 @@ return {
       },
     },
   },
-  { "fcancelinha/nordern.nvim", branch = "master", priority = 1000 },
 }

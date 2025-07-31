@@ -8,9 +8,10 @@ window-padding-x = 30
 window-padding-y = 30
 font-size = 18
 font-family = "IBM Plex Mono"
-adjust-cell-height = 4%
+#font-family = "Aporetic Sans Mono"
+adjust-cell-height = 8%
 window-width = 195
 window-height = 60
-theme = "catppuccin-macchiato"
-background-opacity = 0.95
+theme = "tokyonight_moon"
+#background-opacity = 0.95
 
