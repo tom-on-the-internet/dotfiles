@@ -12,6 +12,7 @@ font-family = "IBM Plex Mono"
 adjust-cell-height = 8%
 window-width = 195
 window-height = 60
-theme = "tokyonight_moon"
+#theme = "tokyonight_moon"
+theme = "tokyonight-storm"
 #background-opacity = 0.95
 
