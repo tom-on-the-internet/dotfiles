@@ -1,7 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = {
-    theme = "catppuccin",
+    theme = "tokyonight",
     sections = {
       lualine_x = {
         "codecompanion",

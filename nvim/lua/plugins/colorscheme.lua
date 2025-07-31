@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-macchiato",
+      colorscheme = "tokyonight-storm",
     },
   },
   {
@@ -23,4 +23,16 @@ return {
       },
     },
   },
+  -- turn off italics for comments in tokyonight
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      styles = {
+        comments = {
+          italic = false,
+        },
+      },
+    },
+  },
+  { "fcancelinha/nordern.nvim", branch = "master", priority = 1000 },
 }
