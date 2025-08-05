@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "kanagawa-paper-ink",
     },
   },
   {
@@ -14,24 +14,16 @@ return {
     },
   },
   {
-    "catppuccin/nvim",
-    opts = {
-      transparent_background = true,
-      styles = {
-        -- no italic comments.
-        comments = {},
-      },
-    },
-  },
-  -- turn off italics for comments in tokyonight
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      styles = {
-        comments = {
-          italic = false,
+    "thesimonho/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("kanagawa-paper").setup({
+        diag_background = false,
+        styles = {
+          comment = { italic = false },
         },
-      },
-    },
+      })
+    end,
   },
 }
