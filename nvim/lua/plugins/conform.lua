@@ -1,8 +1,7 @@
 local util = require("conform.util")
 
 local formatters = {
-  ["php"] = { "prettier", "pint" },
-  -- ["php"] = { "pint" },
+  ["php"] = { "pint", "prettier" },
   ["go"] = { "gofumpt", "golines", "goimports", "trim_whitespace" },
   -- Use the "_" filetype to run formatters on filetypes that don't
   -- have other formatters configured.
