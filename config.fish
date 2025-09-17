@@ -11,7 +11,7 @@ alias cat='bat'
 alias cp='cp -riv'
 alias curl='curlie'
 alias dc='docker compose'
-alias e='nvim --clean'
+alias e='nvim'
 alias ec='nvim --clean'
 alias mkdir='mkdir -vp'
 alias mv='mv -iv'
@@ -70,12 +70,16 @@ function git_main_branch -d 'Detect name of main branch of current git repositor
     end
     echo main
 end
+function wip
+    set now (date "+%Y-%m-%d-%H:%M")
+    git add .
+    git commit -m "wip $now"
+end
 
 set -g fish_greeting
 set -gx EDITOR nvim
 set -gx JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION true
 #set -g fish_autosuggestion_enabled 0
-
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -83,3 +87,7 @@ end
 
 alias assume="source (brew --prefix)/bin/assume.fish"
 starship init fish | source
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
