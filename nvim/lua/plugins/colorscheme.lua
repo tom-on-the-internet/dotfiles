@@ -19,6 +19,7 @@ return {
     priority = 1000,
     config = function()
       require("kanagawa-paper").setup({
+        transparent = true,
         diag_background = false,
         styles = {
           comment = { italic = false },

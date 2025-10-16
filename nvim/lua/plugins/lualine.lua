@@ -22,7 +22,18 @@ return {
           end,
         },
       },
-
+      lualine_b = {
+        {
+          function()
+            local reg = vim.fn.reg_recording()
+            return " recording to " .. reg
+          end,
+          color = "DiagnosticError",
+          cond = function()
+            return vim.fn.reg_recording() ~= ""
+          end,
+        },
+      },
       lualine_x = {
         "codecompanion",
       },
