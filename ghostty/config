@@ -13,6 +13,9 @@ adjust-cell-height = 8%
 window-width = 195
 window-height = 60
 
+#background-opacity = 0.98
+#background-blur-radius = 5
+
 # kanagawa paper
 palette = 0=#393836
 palette = 1=#c4746e
