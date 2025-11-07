@@ -2,7 +2,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-paper-ink",
+      -- colorscheme = "kanagawa-paper-ink",
+      colorscheme = "tokyonight-storm",
     },
   },
   {
@@ -26,5 +27,12 @@ return {
         },
       })
     end,
+  },
+  -- transparent tokyo night
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+    },
   },
 }
