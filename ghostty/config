@@ -13,12 +13,14 @@ adjust-cell-height = 8%
 window-width = 195
 window-height = 60
 
+
 background-opacity = 0.95
 background-blur-radius = 10
 theme = TokyoNight Storm
 
 mouse-hide-while-typing = true
 
+custom-shader-animation = always
 custom-shader = ./shaders/cursor.glsl
 
 cursor-color = #4fd6be
