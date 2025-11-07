@@ -7,6 +7,7 @@ return {
         cssls = {},
         jsonls = {},
         html = {},
+        lemminx = {},
         emmet_language_server = {},
         intelephense = {
           init_options = {
