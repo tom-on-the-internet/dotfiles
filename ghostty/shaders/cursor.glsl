@@ -66,7 +66,7 @@ vec4 saturate(vec4 color, float factor) {
 }
 const vec4 TRAIL_COLOR = vec4(0.310, 0.839, 0.745, 1.0);      // teal (#4fd6be)
 const vec4 TRAIL_COLOR_ACCENT = vec4(0.835, 0.537, 0.647, 1.0); // magenta accent (#d16d9f)
-const float DURATION = 0.3; //IN SECONDS
+const float DURATION = 0.05; //IN SECONDS
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
