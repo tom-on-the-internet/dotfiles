@@ -1,34 +1,4 @@
-output:
-  format: json
+version: "2"
 linters:
-  enable-all: true
-  disable:
-    - depguard
-    - dupl
-    - dupword
-    - err113
-    - exhaustruct
-    - forbidigo
-    - gci
-    - gomnd
-    - lll
-    - mnd
-    - nlreturn
-    - tagliatelle
-    - varnamelen
-    - wrapcheck
-    - wsl
-linters-settings:
-  # nlreturn:
-  #   block-size: 2
-  # varnamelen:
-  #   ignore-names:
-  #     - tc
-  #   ignore-decls:
-  #     - w http.ResponseWriter
-  #     - r *http.Request
-  #     - is *is.I
-  #     - wg sync.WaitGroup
-  #     - r rune
-  #     - e *echo.Echo
-  #     - c echo.Context
+    option: value
+    default: standard
