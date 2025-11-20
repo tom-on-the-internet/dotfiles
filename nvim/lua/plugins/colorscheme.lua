@@ -2,8 +2,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-paper-ink",
+      -- colorscheme = "kanagawa-paper-ink",
       -- colorscheme = "tokyonight-storm",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -34,5 +35,9 @@ return {
     opts = {
       transparent = true,
     },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
   },
 }

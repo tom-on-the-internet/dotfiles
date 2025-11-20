@@ -20,7 +20,7 @@ return {
               "golangci-lint",
               "run",
               "-c",
-              "~/.config/nvim/golangci.yaml",
+              "~/.config/nvim/golangci.yml",
             },
           },
         },
