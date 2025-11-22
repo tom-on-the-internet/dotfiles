@@ -5,6 +5,10 @@ return {
     opts = {
       servers = {
         cssls = {},
+        expert = {},
+        elixirls = {
+          enabled = false,
+        },
         jsonls = {},
         html = {},
         lemminx = {},
