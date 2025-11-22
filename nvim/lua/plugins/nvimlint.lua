@@ -7,11 +7,12 @@ return {
   opts = {
     linters_by_ft = {
       css = { "cspell" },
-      elixir = { "credo" },
+      elixir = { "credo", "cspell" },
       gitcommit = { "cspell" },
       go = { "cspell" },
       graphql = { "cspell" },
       handlebars = { "cspell" },
+      heex = { "cspell" },
       html = { "cspell" },
       javascript = { "cspell" },
       javascriptreact = { "cspell" },
@@ -23,7 +24,6 @@ return {
       php = { "cspell" },
       scss = { "cspell" },
       sh = { "shellcheck", "cspell" },
-      template = { "djlint" },
       terraform = { "tflint", "trivy", "cspell" },
       typescript = { "cspell" },
       typescriptreact = { "cspell" },
