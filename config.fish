@@ -91,3 +91,6 @@ starship init fish | source
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Added by `nodenv init` on Thu 27 Nov 2025 15:46:57 EST
+status --is-interactive; and nodenv init - --no-rehash fish | source
