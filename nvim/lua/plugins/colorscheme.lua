@@ -40,4 +40,8 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
   },
+
+  {
+    "https://codeberg.org/trondelag/CuteScheme",
+  },
 }
