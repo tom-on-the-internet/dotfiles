@@ -160,3 +160,10 @@ map(
   '"<Cmd>vertical resize +" . v:count1 . "<CR>"',
   { expr = true, replace_keycodes = false, desc = "Increase window width" }
 )
+
+map(
+  "n",
+  "<leader>cq",
+  '"<Cmd>Copilot disable<CR>"',
+  { expr = true, replace_keycodes = false, desc = "Disable copilot" }
+)
