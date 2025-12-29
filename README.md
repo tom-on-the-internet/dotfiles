@@ -17,5 +17,4 @@ jethrokuan/z
 jorgebucaran/fisher
 patrickf1/fzf.fish
 rstacruz/fish-npm-global
-vitallium/tokyonight-fish
 ```
