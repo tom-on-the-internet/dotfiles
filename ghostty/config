@@ -8,14 +8,14 @@ window-padding-x = 20
 window-padding-y = 20
 window-padding-balance = true
 font-size = 18
-font-family = "Lilex Nerd Font Mono"
+#font-family = "Lilex Nerd Font Mono"
+font-family = "Berkeley Mono"
 font-family-italic = "Monaspace Radon"
-#font-family-italic = "MonoLisa Nerd Font Mono"
 adjust-cell-height = 8%
 window-width = 195
 window-height = 60
 
-background-opacity = 0.95
+background-opacity = 0.92
 background-blur-radius = 20
 
 mouse-hide-while-typing = true
