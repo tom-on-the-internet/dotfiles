@@ -1,11 +1,7 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "kanagawa-paper-ink",
-      -- colorscheme = "tokyonight-storm",
-      -- colorscheme = "rose-pine",
-    },
+    opts = {},
   },
   {
     "folke/noice.nvim",
@@ -27,21 +23,25 @@ return {
           comment = { italic = false },
         },
       })
+      -- vim.cmd("colorscheme kanagawa-paper-ink")
     end,
   },
-  -- transparent tokyo night
   {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-    },
+    "oskarnurm/koda.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("koda").setup({ transparent = true })
+      -- vim.cmd("colorscheme koda")
+    end,
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-  },
-
-  {
-    "https://codeberg.org/trondelag/CuteScheme",
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({ transparent = true, italic_comments = true, borderless_pickers = true })
+      vim.cmd("colorscheme cyberdream")
+    end,
   },
 }
