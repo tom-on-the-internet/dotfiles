@@ -1,5 +1,6 @@
 fish_add_path -g /opt/homebrew/bin/
 fish_add_path -g ~/.local/bin
+fish_add_path -g ~/.composer/vendor/bin
 fish_add_path -g ~/.npm-packages/bin
 fish_add_path -g ~/.node_modules/bin
 fish_add_path -g ~/go/bin
@@ -70,10 +71,69 @@ function git_main_branch -d 'Detect name of main branch of current git repositor
     end
     echo main
 end
+
 function wip
     set now (date "+%Y-%m-%d-%H:%M")
     git add .
     git commit -m "wip $now"
+end
+
+function wt
+    if test (count $argv) -lt 1
+        echo "Usage: wt \"add ability to create bookings\""
+        return 1
+    end
+
+    # Join all args into one string
+    set raw (string join ' ' $argv)
+
+    # Make a slug
+    set slug (string lower $raw | string replace -ar '[^a-z0-9]+' '-' | string trim -c '-')
+
+    # Full branch name
+    set branch "wt/$slug"
+
+    set main_dir (pwd)
+    set worktrees_dir "$main_dir/../worktrees"
+    set target_dir "$worktrees_dir/$slug"
+
+    mkdir -p $worktrees_dir
+    or return 1
+
+    # If worktree already exists, just enter it
+    if test -d $target_dir
+        cd $target_dir
+        echo "ℹ️  Worktree already exists:"
+        echo "   Branch: $branch"
+        echo "   Path:   $target_dir"
+        return 0
+    end
+
+    # Create worktree (reuse branch if it exists)
+    if git show-ref --verify --quiet "refs/heads/$branch"
+        git worktree add $target_dir $branch
+        or return 1
+    else
+        git worktree add -b $branch $target_dir
+        or return 1
+
+        git -C $target_dir push -u origin $branch
+        or return 1
+    end
+
+    cp services/payroll/.env "$target_dir/.env"
+    or return 1
+
+    ln -s "$main_dir/services/payroll/vendor" "$target_dir/services/payroll/vendor"
+    or return 1
+
+    cd $target_dir
+    or return 1
+
+    echo
+    echo "✅ Worktree ready:"
+    echo "   Branch: $branch"
+    echo "   Path:   $target_dir"
 end
 
 set -g fish_greeting
