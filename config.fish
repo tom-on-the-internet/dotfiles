@@ -78,62 +78,58 @@ function wip
     git commit -m "wip $now"
 end
 
-function wt
-    if test (count $argv) -lt 1
-        echo "Usage: wt \"add ability to create bookings\""
-        return 1
-    end
+function commit --description "Stage and commit with optional AI-generated message"
+    set commitMessage (string join " " $argv)
 
-    # Join all args into one string
-    set raw (string join ' ' $argv)
-
-    # Make a slug
-    set slug (string lower $raw | string replace -ar '[^a-z0-9]+' '-' | string trim -c '-')
-
-    # Full branch name
-    set branch "wt/$slug"
-
-    set main_dir (pwd)
-    set worktrees_dir "$main_dir/../worktrees"
-    set target_dir "$worktrees_dir/$slug"
-
-    mkdir -p $worktrees_dir
+    # Stage all changes
+    git add .
     or return 1
 
-    # If worktree already exists, just enter it
-    if test -d $target_dir
-        cd $target_dir
-        echo "ℹ️  Worktree already exists:"
-        echo "   Branch: $branch"
-        echo "   Path:   $target_dir"
+    # Bail early if nothing staged
+    if git diff --cached --quiet
+        echo "Nothing to commit."
         return 0
     end
 
-    # Create worktree (reuse branch if it exists)
-    if git show-ref --verify --quiet "refs/heads/$branch"
-        git worktree add $target_dir $branch
-        or return 1
-    else
-        git worktree add -b $branch $target_dir
-        or return 1
+    # Generate commit message via Claude if none provided
+    if test -z "$commitMessage"
+        echo "Generating commit message..."
+        set -l diff_input "=== Summary ===
+"(git diff --cached --stat)"
 
-        git -C $target_dir push -u origin $branch
-        or return 1
+=== Diff (truncated if large) ===
+"(git diff --cached | head -c 50000)
+
+        set commitMessage (echo "$diff_input" | claude -p "Write a single-line commit message for this diff. Output ONLY the message, no quotes, no explanation, no markdown.")
+        or begin
+            echo "Failed to generate commit message."
+            return 1
+        end
+
+        if test -z "$commitMessage"
+            echo "Got empty commit message from Claude."
+            return 1
+        end
+
+        # Show the generated message and ask for confirmation
+        echo "Commit message: $commitMessage"
+        read -P "Proceed? [Y/n/e(dit)] " confirm
+        switch (string lower "$confirm")
+            case n no
+                echo "Aborted."
+                git reset HEAD --quiet
+                return 1
+            case e edit
+                read -P "New message: " commitMessage
+                if test -z "$commitMessage"
+                    echo "Empty message. Aborted."
+                    git reset HEAD --quiet
+                    return 1
+                end
+        end
     end
 
-    cp services/payroll/.env "$target_dir/.env"
-    or return 1
-
-    ln -s "$main_dir/services/payroll/vendor" "$target_dir/services/payroll/vendor"
-    or return 1
-
-    cd $target_dir
-    or return 1
-
-    echo
-    echo "✅ Worktree ready:"
-    echo "   Branch: $branch"
-    echo "   Path:   $target_dir"
+    git commit -m "$commitMessage"
 end
 
 set -g fish_greeting
