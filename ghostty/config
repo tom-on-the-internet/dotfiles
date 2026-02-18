@@ -8,17 +8,20 @@ window-padding-x = 20
 window-padding-y = 20
 window-padding-balance = true
 font-size = 18
-#font-family = "Lilex Nerd Font Mono"
-font-family = "Berkeley Mono"
-font-family-italic = "Monaspace Radon"
+font-family = "Lilex Nerd Font Mono"
+#font-family = "Berkeley Mono"
+#font-family-italic = "Monaspace Radon"
 adjust-cell-height = 8%
 window-width = 195
 window-height = 60
 
-background-opacity = 0.92
-background-blur-radius = 20
+#background-opacity = 0.90
+#background-blur-radius = 20
+#background-blur = macos-glass-regular
 
 mouse-hide-while-typing = true
+theme = TokyoNight Night
+
 
 # kanagawa paper
 #palette = 0=#393836
@@ -44,25 +47,24 @@ mouse-hide-while-typing = true
 #selection-foreground = #9e9b93
 
 # cyberdream theme for ghostty
-palette = 0=#16181a
-palette = 1=#ff6e5e
-palette = 2=#5eff6c
-palette = 3=#f1ff5e
-palette = 4=#5ea1ff
-palette = 5=#bd5eff
-palette = 6=#5ef1ff
-palette = 7=#ffffff
-palette = 8=#3c4048
-palette = 9=#ff6e5e
-palette = 10=#5eff6c
-palette = 11=#f1ff5e
-palette = 12=#5ea1ff
-palette = 13=#bd5eff
-palette = 14=#5ef1ff
-palette = 15=#ffffff
-
-background = #16181a
-foreground = #ffffff
-cursor-color = #ffffff
-selection-background = #3c4048
-selection-foreground = #ffffff
+#palette = 0=#16181a
+#palette = 1=#ff6e5e
+#palette = 2=#5eff6c
+#palette = 3=#f1ff5e
+#palette = 4=#5ea1ff
+#palette = 5=#bd5eff
+#palette = 6=#5ef1ff
+#palette = 7=#ffffff
+#palette = 8=#3c4048
+#palette = 9=#ff6e5e
+#palette = 10=#5eff6c
+#palette = 11=#f1ff5e
+#palette = 12=#5ea1ff
+#palette = 13=#bd5eff
+#palette = 14=#5ef1ff
+#palette = 15=#ffffff
+#background = #16181a
+#foreground = #ffffff
+#cursor-color = #ffffff
+#selection-background = #3c4048
+#selection-foreground = #ffffff

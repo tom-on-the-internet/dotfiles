@@ -3,7 +3,7 @@ local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
 return {
   "nvim-lualine/lualine.nvim",
   opts = {
-    theme = kanagawa_paper,
+    theme = "tokyonight",
     sections = {
       lualine_a = {
         {
