@@ -51,15 +51,6 @@ function ct
     docker compose exec payroll-api bash
 end
 
-function git
-    if test "$argv[1]" = checkout
-        echo "Tom! Don't use checkout!" >&2
-        return 1
-    else
-        command git $argv
-    end
-end
-
 function git_main_branch -d 'Detect name of main branch of current git repository'
     # heuristic to return the name of the main branch
     command git rev-parse --git-dir &>/dev/null || return
@@ -78,58 +69,131 @@ function wip
     git commit -m "wip $now"
 end
 
-function commit --description "Stage and commit with optional AI-generated message"
-    set commitMessage (string join " " $argv)
+function _generate_commit_message --description "Generate a commit message from staged diff via Claude"
+    # Expects changes to already be staged. Outputs the message to stdout.
+    # Returns 1 on failure/abort.
+    echo "Generating commit message..." >&2
+    set -l diff_input "=== Summary ===
+"(git diff --cached --stat)"
+=== Diff (truncated if large) ===
+"(git diff --cached | head -c 50000)
 
-    # Stage all changes
+    set -l msg (echo "$diff_input" | claude -p "Write a single-line commit message for this diff. Output ONLY the message, no quotes, no explanation, no markdown." 2>/tmp/_commit_claude_err)
+    or begin
+        echo "Failed to generate commit message:" >&2
+        cat /tmp/_commit_claude_err >&2
+        return 1
+    end
+
+    if test -z "$msg"
+        echo "Got empty commit message from Claude." >&2
+        return 1
+    end
+
+    echo "Commit message: $msg" >&2
+    read -P "Proceed? [Y/n/e(dit)] " confirm
+    switch (string lower "$confirm")
+        case n no
+            echo "Aborted." >&2
+            return 1
+        case e edit
+            read -P "New message: " msg
+            if test -z "$msg"
+                echo "Empty message. Aborted." >&2
+                return 1
+            end
+    end
+
+    echo "$msg"
+end
+
+function commit --description "Stage and commit with optional AI-generated message"
+    set -l commitMessage (string join " " $argv)
+
     git add .
     or return 1
 
-    # Bail early if nothing staged
     if git diff --cached --quiet
         echo "Nothing to commit."
         return 0
     end
 
-    # Generate commit message via Claude if none provided
     if test -z "$commitMessage"
-        echo "Generating commit message..."
-        set -l diff_input "=== Summary ===
-"(git diff --cached --stat)"
-
-=== Diff (truncated if large) ===
-"(git diff --cached | head -c 50000)
-
-        set commitMessage (echo "$diff_input" | claude -p "Write a single-line commit message for this diff. Output ONLY the message, no quotes, no explanation, no markdown.")
+        set commitMessage (_generate_commit_message)
         or begin
-            echo "Failed to generate commit message."
+            git reset HEAD --quiet
             return 1
-        end
-
-        if test -z "$commitMessage"
-            echo "Got empty commit message from Claude."
-            return 1
-        end
-
-        # Show the generated message and ask for confirmation
-        echo "Commit message: $commitMessage"
-        read -P "Proceed? [Y/n/e(dit)] " confirm
-        switch (string lower "$confirm")
-            case n no
-                echo "Aborted."
-                git reset HEAD --quiet
-                return 1
-            case e edit
-                read -P "New message: " commitMessage
-                if test -z "$commitMessage"
-                    echo "Empty message. Aborted."
-                    git reset HEAD --quiet
-                    return 1
-                end
         end
     end
 
     git commit -m "$commitMessage"
+end
+
+function kickoff --description "Create a branch, commit staged changes, and push"
+    # Usage:
+    #   kickoff "some description"           → branch: some-description
+    #   kickoff PROJ-123 "some description"  → branch: PROJ-123-some-description
+    #   kickoff                              → branch + message from AI
+
+    set -l ticket ""
+    set -l description ""
+
+    if test (count $argv) -ge 2
+        set ticket $argv[1]
+        set description (string join " " $argv[2..])
+    else if test (count $argv) -eq 1
+        set description $argv[1]
+    end
+
+    # Warn if not on main/master
+    set -l current_branch (git rev-parse --abbrev-ref HEAD)
+    if not contains $current_branch main master
+        echo "⚠ You're branching off $current_branch, not main or master."
+        read -P "Continue? [Y/n] " confirm
+        switch (string lower "$confirm")
+            case n no
+                return 1
+        end
+    end
+
+    # Build commit message
+    set -l commitMessage ""
+    if test -n "$description"
+        if test -n "$ticket"
+            set commitMessage "$ticket $description"
+        else
+            set commitMessage "$description"
+        end
+    else
+        # Need to stage first so the helper can read the diff
+        git add .
+        or return 1
+        if git diff --cached --quiet
+            echo "Nothing to commit."
+            return 0
+        end
+        set commitMessage (_generate_commit_message)
+        or begin
+            git reset HEAD --quiet
+            return 1
+        end
+    end
+
+    # Derive branch name
+    set -l kebab (string lower "$commitMessage" | string replace -ar '[^a-z0-9 -]' '' | string replace -ar ' +' '-' | string trim --chars='-')
+    set -l branch_name "$kebab"
+    if test -n "$ticket"
+        set branch_name "$ticket-$kebab"
+    end
+
+    git checkout -b "$branch_name"
+    or return 1
+
+    # Delegate to commit (stages again, harmless)
+    commit "$commitMessage"
+    or return 1
+
+    git push -u origin "$branch_name"
 end
 
 set -g fish_greeting
