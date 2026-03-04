@@ -134,6 +134,15 @@ map("n", "<leader>uB", function()
   end
 end, { desc = "Toggle Completion" })
 
+map("n", "<leader>ai", function()
+  vim.g.copilot_enabled = not vim.g.copilot_enabled
+  if vim.g.copilot_enabled then
+    vim.notify("Copilot ON")
+  else
+    vim.notify("Copilot OFF")
+  end
+end, { desc = "Toggle Copilot" })
+
 -- Window resize (respecting `v:count`)
 -- for my mac
 map(
