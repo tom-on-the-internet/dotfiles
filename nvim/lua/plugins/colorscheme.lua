@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "moonfly",
     },
   },
   {
@@ -11,6 +11,17 @@ return {
     priority = 1000,
     opts = {},
   },
+
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.moonflyItalics = false
+    end,
+  },
+
   {
     "folke/noice.nvim",
     opts = {
@@ -32,15 +43,6 @@ return {
         },
       })
       -- vim.cmd("colorscheme kanagawa-paper-ink")
-    end,
-  },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({ transparent = true, italic_comments = true, borderless_pickers = true })
-      -- vim.cmd("colorscheme cyberdream")
     end,
   },
 }
