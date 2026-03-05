@@ -47,7 +47,7 @@ local function add_unknown_word(unknown_word)
   end
 
   vim.list_extend(words, { unknown_word })
-  words = dedupe(lua_table.words)
+  words = dedupe(words)
   table.sort(words)
   lua_table.words = words
   local json_string = vim.fn.json_encode(lua_table)
