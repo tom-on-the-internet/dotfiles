@@ -6,23 +6,6 @@ return {
     },
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-
-  {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.moonflyItalics = false
-    end,
-  },
-
-  {
     "folke/noice.nvim",
     opts = {
       presets = {
@@ -31,18 +14,12 @@ return {
     },
   },
   {
-    "thesimonho/kanagawa-paper.nvim",
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
     lazy = false,
     priority = 1000,
     config = function()
-      require("kanagawa-paper").setup({
-        -- transparent = true,
-        diag_background = false,
-        styles = {
-          comment = { italic = false },
-        },
-      })
-      -- vim.cmd("colorscheme kanagawa-paper-ink")
+      vim.g.moonflyItalics = false
     end,
   },
 }
