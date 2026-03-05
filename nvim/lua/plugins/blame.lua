@@ -6,6 +6,5 @@ return {
       require("blame").setup({})
       vim.keymap.set("n", "<leader>gx", "<CMD>BlameToggle<CR>", { desc = "Git Blame" })
     end,
-    opts = {},
   },
 }

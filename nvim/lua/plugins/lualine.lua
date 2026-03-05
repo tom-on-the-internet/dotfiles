@@ -1,9 +1,7 @@
-local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
-
 return {
   "nvim-lualine/lualine.nvim",
   opts = {
-    theme = "tokyonight",
+    theme = "moonfly",
     sections = {
       lualine_a = {
         {
