@@ -72,13 +72,23 @@ end
 function _generate_commit_message --description "Generate a commit message from staged diff via Claude"
     # Expects changes to already be staged. Outputs the message to stdout.
     # Returns 1 on failure/abort.
+
+    read -P "Additional context? (why this change, or enter to skip) " -g _commit_context
+
     echo "Generating commit message..." >&2
     set -l diff_input "=== Summary ===
 "(git diff --cached --stat)"
 === Diff (truncated if large) ===
 "(git diff --cached | head -c 50000)
 
-    set -l msg (echo "$diff_input" | claude -p "Write a single-line commit message for this diff. Output ONLY the message, no quotes, no explanation, no markdown." 2>/tmp/_commit_claude_err)
+    set -l context_block ""
+    if test -n (string trim -- "$_commit_context")
+        set context_block "
+=== Context from author ===
+$_commit_context"
+    end
+
+    set -l msg (echo "$diff_input$context_block" | claude -p "Write a short commit message (under 72 chars) for this diff. Focus on WHY the change was made, not what files changed. If the author provided context, lean on it heavily. Be specific but concise—no filler words. Output ONLY the message, no quotes, no explanation." 2>/tmp/_commit_claude_err)
     or begin
         echo "Failed to generate commit message:" >&2
         cat /tmp/_commit_claude_err >&2
@@ -130,25 +140,10 @@ function commit --description "Stage and commit with optional AI-generated messa
 end
 
 function kickoff --description "Create a branch, commit staged changes, and push"
-    # Usage:
-    #   kickoff "some description"           → branch: some-description
-    #   kickoff PROJ-123 "some description"  → branch: PROJ-123-some-description
-    #   kickoff                              → branch + message from AI
-
-    set -l ticket ""
-    set -l description ""
-
-    if test (count $argv) -ge 2
-        set ticket $argv[1]
-        set description (string join " " $argv[2..])
-    else if test (count $argv) -eq 1
-        set description $argv[1]
-    end
-
     # Warn if not on main/master
     set -l current_branch (git rev-parse --abbrev-ref HEAD)
     if not contains $current_branch main master
-        echo "⚠ You're branching off $current_branch, not main or master."
+        echo "Warning: you're branching off $current_branch, not main or master."
         read -P "Continue? [Y/n] " confirm
         switch (string lower "$confirm")
             case n no
@@ -156,44 +151,63 @@ function kickoff --description "Create a branch, commit staged changes, and push
         end
     end
 
-    # Build commit message
-    set -l commitMessage ""
-    if test -n "$description"
-        if test -n "$ticket"
-            set commitMessage "$ticket $description"
-        else
-            set commitMessage "$description"
-        end
-    else
-        # Need to stage first so the helper can read the diff
-        git add .
-        or return 1
-        if git diff --cached --quiet
-            echo "Nothing to commit."
-            return 0
-        end
-        set commitMessage (_generate_commit_message)
-        or begin
-            git reset HEAD --quiet
-            return 1
-        end
+    # Stage and check for changes
+    git add .
+    or return 1
+    if git diff --cached --quiet
+        echo "Nothing to commit."
+        return 0
     end
 
-    # Derive branch name
-    set -l kebab (string lower "$commitMessage" | string replace -ar '[^a-z0-9 -]' '' | string replace -ar ' +' '-' | string trim --chars='-')
-    set -l branch_name "$kebab"
+    # Ask for Linear ticket
+    read -P "Linear ticket? (e.g. PROJ-123, or enter to skip) " ticket
+    set ticket (string trim "$ticket")
+
+    # Generate commit message from diff
+    set -l commitMessage (_generate_commit_message)
+    or begin
+        git reset HEAD --quiet
+        return 1
+    end
+
+    # Prefix commit message with ticket
     if test -n "$ticket"
-        set branch_name "$ticket-$kebab"
+        set commitMessage "$ticket $commitMessage"
     end
 
-    git checkout -b "$branch_name"
+    # Derive short branch name (max 5 words from message)
+    set -l short (string split " " -- "$commitMessage" | head -5 | string join " ")
+    set -l kebab (string lower "$short" | string replace -ar '[^a-z0-9 -]' '' | string replace -ar ' +' '-' | string trim --chars='-')
+
+    git checkout -b "$kebab"
     or return 1
 
-    # Delegate to commit (stages again, harmless)
     commit "$commitMessage"
     or return 1
 
-    git push -u origin "$branch_name"
+    git push -u origin "$kebab"
+
+    # Offer to create a draft PR
+    read -P "Create draft PR? [y/N] " pr_confirm
+    switch (string lower "$pr_confirm")
+        case y yes
+            echo "Generating PR description..."
+            set -l diff_for_pr (git diff origin/(git_main_branch)...HEAD | head -c 50000)
+            set -l pr_context ""
+            if test -n (string trim -- "$_commit_context")
+                set pr_context "
+=== Context from author ===
+$_commit_context"
+            end
+            set -l pr_body (echo "$diff_for_pr$pr_context" | claude -p "Write a 1-2 sentence PR description explaining WHY this change was made and what problem it solves. Do not describe what files changed or list individual changes. If the author provided context, lean on it heavily. Output ONLY the description, no markdown, no sections, no bullet points." 2>/dev/null)
+            set -l pr_title "$commitMessage"
+
+            if test -n "$pr_body"
+                gh pr create --draft --title "$pr_title" --body "$pr_body"
+            else
+                gh pr create --draft --title "$pr_title" --body ""
+            end
+    end
 end
 
 set -g fish_greeting
