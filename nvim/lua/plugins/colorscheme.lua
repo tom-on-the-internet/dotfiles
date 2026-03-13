@@ -20,6 +20,7 @@ return {
     priority = 1000,
     config = function()
       vim.g.moonflyItalics = false
+      vim.g.moonflyTransparent = true -- enable transparent background
     end,
   },
 }

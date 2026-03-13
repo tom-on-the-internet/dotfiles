@@ -4,23 +4,21 @@ macos-option-as-alt = true
 quit-after-last-window-closed = true
 cursor-style-blink = false
 shell-integration-features = no-cursor
-window-padding-x = 20
-window-padding-y = 20
+window-padding-x = 30
+window-padding-y = 30
 window-padding-balance = true
 font-size = 18
 font-family = "Lilex Nerd Font Mono"
 #font-family = "Berkeley Mono"
-#font-family-italic = "Monaspace Radon"
 adjust-cell-height = 8%
 window-width = 195
 window-height = 60
 
-#background-opacity = 0.90
-#background-blur-radius = 20
-#background-blur = macos-glass-regular
+background-opacity = 0.80
+background-blur-radius = 20
+background-blur = macos-glass-regular
 
 mouse-hide-while-typing = true
-#theme = TokyoNight Night
 
 # Moonfly
 background = #080808
