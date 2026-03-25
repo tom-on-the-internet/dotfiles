@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "moonfly",
+      colorscheme = "catppuccin-macchiato",
     },
   },
   {
@@ -12,6 +12,16 @@ return {
         lsp_doc_border = true,
       },
     },
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        no_italic = true, -- Force no italic
+      })
+    end,
   },
   {
     "bluz71/vim-moonfly-colors",

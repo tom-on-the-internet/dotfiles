@@ -1,7 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = {
-    theme = "moonfly",
     sections = {
       lualine_a = {
         {
