@@ -1,7 +1,7 @@
-macos-titlebar-style = hidden
+#macos-titlebar-style = hidden
+#quit-after-last-window-closed = true
 confirm-close-surface = false
 macos-option-as-alt = true
-quit-after-last-window-closed = true
 cursor-style-blink = false
 shell-integration-features = no-cursor
 window-padding-x = 20
