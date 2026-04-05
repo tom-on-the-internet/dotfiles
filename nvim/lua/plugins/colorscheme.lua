@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-macchiato",
+      colorscheme = "catppuccin-frappe",
     },
   },
   {
@@ -19,18 +19,13 @@ return {
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        no_italic = true, -- Force no italic
+        no_italic = true,
+        color_overrides = {
+          frappe = {
+            base = "#40465e",
+          },
+        },
       })
-    end,
-  },
-  {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.moonflyItalics = false
-      vim.g.moonflyTransparent = true -- enable transparent background
     end,
   },
 }
