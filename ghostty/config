@@ -1,21 +1,13 @@
-#macos-titlebar-style = hidden
-#quit-after-last-window-closed = true
 confirm-close-surface = false
-macos-option-as-alt = true
 cursor-style-blink = false
+font-family = Lilex Nerd Font Mono
+font-size = 18
+macos-option-as-alt = true
+mouse-hide-while-typing = true
 shell-integration-features = no-cursor
+#window-padding-balance = true
 window-padding-x = 20
 window-padding-y = 20
-window-padding-balance = true
-font-size = 18
-font-family = "Lilex Nerd Font Mono"
-adjust-cell-height = 5%
 window-width = 195
-window-height = 60
-
-
-mouse-hide-while-typing = true
-
-theme = Catppuccin Frappe
-background = #40465e
+theme = light:catppuccin-frappe-light,dark:Catppuccin Frappe
 
