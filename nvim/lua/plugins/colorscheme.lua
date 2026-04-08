@@ -22,13 +22,22 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    config = function()
-      require("catppuccin").setup({
+    opts = function()
+      local light = is_macos_light()
+      return {
         no_italic = true,
         color_overrides = {
-          frappe = is_macos_light() and { base = "#40465e" } or {},
+          frappe = light and { base = "#40465e" } or {},
         },
-      })
+        custom_highlights = function(colors)
+          if light then
+            return {
+              GitSignsCurrentLineBlame = { fg = colors.subtext0 },
+            }
+          end
+          return {}
+        end,
+      }
     end,
   },
 }
