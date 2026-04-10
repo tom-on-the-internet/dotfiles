@@ -3,11 +3,13 @@ local function is_macos_light()
   return vim.v.shell_error ~= 0
 end
 
+local light = is_macos_light()
+
 return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-frappe",
+      colorscheme = light and "catppuccin-latte" or "catppuccin-frappe",
     },
   },
   {
@@ -22,22 +24,8 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    opts = function()
-      local light = is_macos_light()
-      return {
-        no_italic = true,
-        color_overrides = {
-          frappe = light and { base = "#40465e" } or {},
-        },
-        custom_highlights = function(colors)
-          if light then
-            return {
-              GitSignsCurrentLineBlame = { fg = colors.subtext0 },
-            }
-          end
-          return {}
-        end,
-      }
-    end,
+    opts = {
+      no_italic = true,
+    },
   },
 }
