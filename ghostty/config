@@ -8,5 +8,8 @@ window-padding-balance = true
 window-padding-x = 20
 window-padding-y = 20
 window-width = 195
+font-family = "Lilex Nerd Font Mono"
+adjust-cell-height = 8%
 theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 unfocused-split-opacity=0.9
+
