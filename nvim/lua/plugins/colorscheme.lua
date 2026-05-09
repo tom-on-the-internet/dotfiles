@@ -9,7 +9,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = light and "catppuccin-latte" or "catppuccin-mocha",
+      -- colorscheme = light and "catppuccin-latte" or "catppuccin-mocha",
+      colorscheme = "nord",
     },
   },
   {
@@ -19,6 +20,15 @@ return {
         lsp_doc_border = true,
       },
     },
+  },
+  {
+    "gbprod/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nord").setup({})
+      -- vim.cmd.colorscheme("nord")
+    end,
   },
   {
     "catppuccin/nvim",
