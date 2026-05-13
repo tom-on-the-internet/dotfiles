@@ -8,9 +8,34 @@ window-padding-balance = true
 window-padding-x = 20
 window-padding-y = 20
 window-width = 195
-#theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 adjust-cell-height = 10%
 font-family = MonaspiceXe Nerd Font Mono
-theme = Nord
+#theme = opencode
 unfocused-split-opacity=0.9
 
+
+# OpenCode Ghostty Theme
+# Based on opencode.nvim by al3rez
+# https://github.com/al3rez/opencode.nvim
+background = #0a0a0a
+foreground = #eeeeee
+cursor-color = #fab283
+cursor-text = #0a0a0a
+selection-background = #282828
+selection-foreground = #eeeeee
+palette = 0=#0a0a0a
+palette = 1=#e06c75
+palette = 2=#7fd88f
+palette = 3=#f5a742
+palette = 4=#5c9cf5
+palette = 5=#9d7cd8
+palette = 6=#56b6c2
+palette = 7=#eeeeee
+palette = 8=#323232
+palette = 9=#e06c75
+palette = 10=#7fd88f
+palette = 11=#f5a742
+palette = 12=#5c9cf5
+palette = 13=#9d7cd8
+palette = 14=#56b6c2
+palette = 15=#ffc09f

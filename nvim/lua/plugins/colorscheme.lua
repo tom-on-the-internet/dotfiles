@@ -10,7 +10,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = light and "catppuccin-latte" or "catppuccin-mocha",
-      colorscheme = "nord",
+      colorscheme = "opencode",
     },
   },
   {
@@ -22,12 +22,16 @@ return {
     },
   },
   {
-    "gbprod/nord.nvim",
+    "al3rez/opencode.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      require("nord").setup({})
-      -- vim.cmd.colorscheme("nord")
+    opts = {
+      style = "dark", -- "dark" or "light"
+      transparent = false, -- enable transparent background
+      italic_comments = true,
+    },
+    config = function(_, opts)
+      require("opencode").setup(opts)
     end,
   },
   {
