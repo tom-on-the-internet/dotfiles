@@ -8,8 +8,9 @@ window-padding-balance = true
 window-padding-x = 20
 window-padding-y = 20
 window-width = 195
-adjust-cell-height = 10%
-font-family = MonaspiceXe Nerd Font Mono
+adjust-cell-height = 15%
+#font-family = MonaspiceXe Nerd Font Mono
+font-family = MartianMono Nerd Font Mono
 theme = token
 unfocused-split-opacity=0.9
 
