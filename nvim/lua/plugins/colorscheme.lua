@@ -10,7 +10,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = light and "catppuccin-latte" or "catppuccin-mocha",
-      colorscheme = "opencode",
+      colorscheme = "token",
     },
   },
   {
@@ -34,6 +34,7 @@ return {
       require("opencode").setup(opts)
     end,
   },
+  { "ThorstenRhau/token" },
   {
     "catppuccin/nvim",
     name = "catppuccin",

@@ -1,0 +1,17 @@
+
+[palettes.token]
+bg      = "#262624"
+fg      = "#e8e4dc"
+muted   = "#938e87"
+subtle  = "#5a5955"
+accent  = "#d97757"
+accent2 = "#c4956a"
+blue    = "#7b9ebd"
+green   = "#7da47a"
+red     = "#c67777"
+yellow  = "#c4a855"
+purple  = "#a68bbf"
+cyan    = "#6ba8a8"
+orange  = "#d4914a"
+
+palette = "token"
