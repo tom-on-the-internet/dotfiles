@@ -14,4 +14,19 @@ purple  = "#a68bbf"
 cyan    = "#6ba8a8"
 orange  = "#d4914a"
 
-palette = "token"
+[palettes.hardhat]
+bg      = "#222629"
+fg      = "#b6c2cc"
+muted   = "#646f73"
+subtle  = "#4f5258"
+accent  = "#d77d20"
+accent2 = "#d49757"
+blue    = "#4ab0d6"
+green   = "#74c93d"
+red     = "#dc483b"
+yellow  = "#d7ae00"
+purple  = "#d49757" # hardhat has no purple; git branch etc. go orange
+cyan    = "#2ca4aa"
+orange  = "#d77d20"
+
+palette = "hardhat"
