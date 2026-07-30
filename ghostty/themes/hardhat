@@ -1,0 +1,37 @@
+# hardhat — industrial terminal theme (cold steel • balanced contrast)
+# Ported from https://github.com/g-kirti/hardhat.nvim (extras/kitty/hardhat.conf)
+# original palette author: g-kirti
+
+background = #222629
+foreground = #b6c2cc
+
+cursor-color = #b6c2cc
+cursor-text = #222629
+
+selection-background = #d9b100
+selection-foreground = #121416
+
+# black
+palette = 0=#121416
+palette = 8=#646f73
+# red
+palette = 1=#dc483b
+palette = 9=#d46157
+# green (sunlit leaf)
+palette = 2=#74c93d
+palette = 10=#a8d685
+# yellow (hi-vis)
+palette = 3=#d9b100
+palette = 11=#d4b457
+# blue (actually teal)
+palette = 4=#2ca4aa
+palette = 12=#66a9ad
+# magenta (actually orange)
+palette = 5=#d77d20
+palette = 13=#d49757
+# cyan (UN blue)
+palette = 6=#4ab0d6
+palette = 14=#70b2cf
+# white
+palette = 7=#a3a6a8
+palette = 15=#babdbf
