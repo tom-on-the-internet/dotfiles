@@ -11,7 +11,7 @@ window-width = 195
 adjust-cell-height = 25%
 #font-family = MonaspiceXe Nerd Font Mono
 #font-family = MartianMono Nerd Font Mono
-font-family = Berkeley Mono
+font-family = GoogleSansCode Nerd Font Mono
 theme = hardhat
 unfocused-split-opacity=0.9
 
