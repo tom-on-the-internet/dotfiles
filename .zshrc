@@ -3,6 +3,7 @@
 
 # ---------- Options ----------
 setopt auto_cd
+setopt nocasedir
 setopt no_beep
 setopt hist_ignore_dups
 setopt share_history
@@ -29,7 +30,11 @@ path=(
 if [[ -d /opt/homebrew/share/zsh-completions ]]; then
   fpath=(/opt/homebrew/share/zsh-completions $fpath)
 fi
+zmodload zsh/complist
 autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # ---------- fzf ----------
 if command -v fzf >/dev/null 2>&1; then
