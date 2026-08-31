@@ -3,7 +3,6 @@
 
 # ---------- Options ----------
 setopt auto_cd
-setopt nocasedir
 setopt no_beep
 setopt hist_ignore_dups
 setopt share_history
