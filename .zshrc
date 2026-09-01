@@ -18,7 +18,7 @@ path=(
   /opt/homebrew/bin
   ~/.local/bin
   ~/.composer/vendor/bin
-  ~/.npm-packages/bin
+  ~/.node_modules/bin
   ~/go/bin
   ~/.orbstack/bin
   /opt/homebrew/opt/mysql-client@8.4/bin
