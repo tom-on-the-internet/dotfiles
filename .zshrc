@@ -17,6 +17,7 @@ typeset -U path
 path=(
   /opt/homebrew/bin
   ~/.local/bin
+  ~/.cargo/bin
   ~/.composer/vendor/bin
   ~/.node_modules/bin
   ~/go/bin
