@@ -57,6 +57,7 @@ if [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # ---------- Aliases ----------
+alias brewup='brew update && brew upgrade && brew cleanup --prune=all && brew autoremove'
 alias cat='bat'
 alias cp='cp -riv'
 alias curl='curlie'
