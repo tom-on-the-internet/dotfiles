@@ -82,7 +82,21 @@ alias gpf='git push --force-with-lease'
 alias gpl='git pull'
 alias grb='git pull; git rebase -i origin/$(git_main_branch)'
 alias gs='git status -sb'
-alias gsw='git switch'
+# gsw: no args -> fzf over local branches, most recently used first.
+# With args -> plain git switch. Tab still completes like git switch.
+gsw() {
+  (( $# )) && { git switch "$@"; return }
+  local b
+  b=$(git reflog -1000 --pretty='%gs' \
+      | sed -n 's/^checkout: moving from \([^ ]*\) .*/\1/p' \
+      | awk '!seen[$0]++' \
+      | grep -Fxf <(git for-each-ref --format='%(refname:short)' refs/heads) \
+      | grep -vx "$(git branch --show-current)" \
+      | fzf --height 40% --reverse --preview 'git log --oneline --color=always -15 {}') \
+    && git switch "$b"
+}
+_gsw() { words=(git switch "${(@)words[2,-1]}"); (( CURRENT++ )); service=git; _git }
+compdef _gsw gsw
 alias gswm='git switch $(git_main_branch)'
 
 # ---------- Functions ----------
