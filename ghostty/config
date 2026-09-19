@@ -10,6 +10,6 @@ window-padding-y = 0
 window-width = 195
 adjust-cell-height = 35%
 font-family = Berkeley Mono
-theme = token
+theme = sora
 unfocused-split-opacity=0.9
 
