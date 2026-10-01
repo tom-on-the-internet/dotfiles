@@ -1,0 +1,58 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "buffer_line_height": {
+        "custom": 2.0
+    },
+    "which_key": {
+        "enabled": true
+    },
+    "terminal": {
+        "font_family": "Berkeley Mono"
+    },
+    "vim_mode": true,
+    "buffer_font_family": "MartianMono Nerd Font Mono",
+    "icon_theme": "Monospace Icon Theme - Dark",
+    "ui_font_size": 18,
+    "buffer_font_size": 18,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Sora",
+    },
+
+    "languages": {
+        "PHP": {
+            "language_servers": [
+                "phpantom",
+                "!intelephense",
+                "!phpactor",
+                "!phptools",
+                "...",
+            ],
+            "formatter": "language_server",
+        },
+    },
+
+    "auto_install_extensions": {
+        "blade": true,
+        "docker-compose": true,
+        "dockerfile": true,
+        "env": true,
+        "html": true,
+        "lua": true,
+        "make": true,
+        "monospace-icon-theme": true,
+        "nginx": true,
+        "php": true,
+        "sora-theme": true,
+        "sql": true,
+        "xml": true,
+    },
+}
