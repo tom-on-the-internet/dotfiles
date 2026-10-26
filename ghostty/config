@@ -1,4 +1,3 @@
-custom-shader = ~/.config/ghostty/shaders/cursor-smear.glsl
 confirm-close-surface = false
 cursor-style-blink = false
 font-size = 18
@@ -11,6 +10,6 @@ window-padding-y = 0
 window-width = 195
 adjust-cell-height = 35%
 font-family = Lilex Nerd Font Mono
-theme = sora
+theme = light:Builtin Light,dark:Builtin Dark
 unfocused-split-opacity=0.9
 
